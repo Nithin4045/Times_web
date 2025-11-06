@@ -428,10 +428,10 @@ export default function TopNav({
 
         {/* Right */}
         <div className={styles.right}>
-          <div className={styles.searchWrap} style={{ position: "relative" }} ref={searchRef}>
+          {/* <div className={styles.searchWrap} style={{ position: "relative" }} ref={searchRef}>
             <Tooltip title="Search">
               <button
-                className={styles.searchBtn}
+                className={styles.searchBtn}git add .
                 type="button"
                 aria-label="Search"
                 onClick={() => {
@@ -545,7 +545,7 @@ export default function TopNav({
                 </div>
               </div>
             )}
-          </div>
+          </div> */}
 
           <button className={styles.resumeBtn} type="button" onClick={handleResumeClick}>
             <span className={styles.resumeIconWrap}>
