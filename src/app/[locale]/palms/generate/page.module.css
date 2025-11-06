@@ -1,0 +1,323 @@
+.pageContainer {
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.controlPanel {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+}
+
+.selectContainer {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.select {
+  width: 100%;
+  max-width: 500px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.translateBtn {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  font-weight: 500;
+  height: 44px;
+  padding: 0 32px;
+  font-size: 15px;
+}
+
+.translateBtn:hover {
+  background: #40a9ff !important;
+  border-color: #40a9ff !important;
+}
+
+.replicateBtn {
+  background: #52c41a !important;
+  border-color: #52c41a !important;
+  font-weight: 500;
+  height: 44px;
+  padding: 0 32px;
+  font-size: 15px;
+}
+
+.replicateBtn:hover {
+  background: #73d13d !important;
+  border-color: #73d13d !important;
+}
+
+.taggingBtn {
+  background: #722ed1 !important;
+  border-color: #722ed1 !important;
+  font-weight: 500;
+  height: 44px;
+  padding: 0 32px;
+  font-size: 15px;
+}
+
+.taggingBtn:hover {
+  background: #9254de !important;
+  border-color: #9254de !important;
+}
+
+.contentArea {
+  min-height: 400px;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.emptyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tableContainer {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tableTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.paperIdHighlight {
+  color: #1890ff;
+  background: #e6f7ff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.mcqCount {
+  font-size: 16px;
+  color: #666;
+  background: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.mcqCount strong {
+  color: #1890ff;
+  font-size: 18px;
+  margin-left: 4px;
+}
+
+/* Table Styling */
+.mcqTable {
+  font-size: 14px;
+}
+
+.mcqTable :global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+  font-weight: 600;
+  color: #333;
+  font-size: 15px;
+}
+
+.mcqTable :global(.ant-table-tbody > tr > td) {
+  padding: 12px 16px;
+}
+
+.mcqTable :global(.ant-table-tbody > tr:hover > td) {
+  background: #f5f9ff !important;
+}
+
+.mcqTable :global(.ant-pagination) {
+  margin-top: 24px;
+}
+
+/* Cell Styling */
+.questionIdCell {
+  font-weight: 600;
+  color: #1890ff;
+  background: #e6f7ff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.questionTextCell {
+  line-height: 1.6;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Question Content Formatting */
+.questionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.questionText {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+  padding-left: 8px;
+}
+
+.optionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.optionLabel {
+  font-weight: 600;
+  color: #1890ff;
+  font-size: 13px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+
+.optionText {
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.areaCell {
+  font-weight: 500;
+  color: #722ed1;
+  background: #f9f0ff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 13px;
+}
+
+.optionsCell {
+  line-height: 1.4;
+  color: #333;
+  font-size: 13px;
+}
+
+.solutionCell {
+  line-height: 1.4;
+  color: #333;
+  font-size: 13px;
+}
+
+.solutionText {
+  background: #e6fffb;
+  color: #08979c;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: 1px solid #87e8de;
+  display: block;
+  line-height: 1.4;
+  max-height: 5.6em; /* 5 lines * 1.4 line-height */
+  overflow: hidden;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+
+.noData {
+  color: #999;
+  font-style: italic;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 16px;
+  }
+
+  .controlPanel {
+    padding: 16px;
+  }
+
+  .tableContainer {
+    padding: 16px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+
+  .translateBtn,
+  .replicateBtn,
+  .taggingBtn {
+    width: 100%;
+  }
+
+  .select {
+    max-width: 100%;
+  }
+
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableTitle {
+    font-size: 18px;
+  }
+
+  .mcqTable :global(.ant-table) {
+    font-size: 13px;
+  }
+}

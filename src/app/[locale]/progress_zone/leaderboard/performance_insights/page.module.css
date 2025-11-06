@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+.container {
+  font-family: 'Rubik', sans-serif;
+  background-color: #e6ebee;
+  min-height: calc(100vh - 80px);
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #414141;
+}
+
+.highlight {
+  color: #5a51e2;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6B7280;
+  font-weight: 500;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  text-decoration: none;
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.backIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.headerDivider {
+  border: none;
+  border-top: 1px solid #D1D5DB;
+}
+
+.pageTitle {
+  font-size: 26px;
+  font-weight: 700;
+  color: #414141;
+  margin-bottom: 24px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.performanceCard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #414141;
+  margin-bottom: 24px;
+}
+
+.progressWrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+}
+
+.progressSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progressRing {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  animation: progressCircle 1.5s ease-out forwards;
+}
+
+@keyframes progressCircle {
+  from {
+    stroke-dashoffset: 251.2;
+  }
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: 700;
+  color: #22C55E;
+}
+
+.actionPlan {
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.actionContent {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.actionIcon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(251, 191, 36, 0.3);
+}
+
+.emoji {
+  font-size: 48px;
+}
+
+.actionText {
+  flex: 1;
+}
+
+.actionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #414141;
+  margin-bottom: 16px;
+}
+
+.actionList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.actionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkmark {
+  color: #5a51e2;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.actionTextItem {
+  color: #414141;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerTop {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pageTitle {
+    font-size: 22px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .actionContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .actionIcon {
+    margin: 0 auto;
+  }
+}

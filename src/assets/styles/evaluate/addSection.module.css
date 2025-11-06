@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .searchInput {
+    width: 50vh !important;
+    align-items: right;
+  }
+  
+  .chipsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 40px; 
+    overflow: hidden;
+   
+  }
+  
+  .expanded {
+    max-height: none; 
+  }
+  
+  .chip {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #1890ff; 
+    border-radius: 16px;
+    background-color: #f0f8ff;
+    transition: all 0.3s ease;
+  }
+  
+  .chip:hover {
+    background-color: #e6f7ff;
+  }
+  
+  .toggleButton {
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 5px;
+    color: #1890ff;
+    transition: color 0.3s;
+  }
+  
+  .toggleButton:hover {
+    color: #096dd9;
+  }
+  .down_button{
+    width: fit-content;
+    align-self: center;
+  }
+  .topics_down_button{
+    width: fit-content !important;
+    align-self: center !important;
+    margin-top: 10px;
+  }
+  .topicContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex-wrap: wrap;
+}
+.topicHeaderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }

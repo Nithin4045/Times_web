@@ -1,0 +1,115 @@
+
+
+.container {
+
+    border: 0px;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+   
+    /* background-color: white; */
+    padding: 20px 130px 20px 130px;
+    border: 0px;
+    /* border: 1px solid #eaeaea; */
+   
+}
+
+.table-container {
+    padding: 0px 130px;
+    border: 0px solid #eaeaea;
+    /* border-radius: 5px;
+    border-width: 1px 1px 0px 1px; */
+    /* background-color: #f9f9f9; */
+    
+}
+
+.question-section {
+   
+    padding: 0px;
+    border: 1px solid #eaeaea;
+    margin-bottom: 18px;
+    border-width: 0px 1px 3px 1px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    
+    /* justify-items: space-evenly; */
+    /* border-bottom: 1px solid #eaeaea; */
+
+}
+
+.section-heading {
+    background-color: #aaa5a5;
+    border-radius: 5px 5px 0px 0px;
+    padding: 6px 20px;
+    margin: 0 !important; /* Remove default margin for headings */
+    background: 'linear-gradient(45deg, #bdbdbd 30%, #757575 90%)';
+    height:'auto !important';
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.question-text {
+    text-align: left;
+    padding: 10px; /* Align question text to the left */
+    position: relative;
+   
+    
+}
+
+.slider-container {
+    /* text-align: right;  */
+    color: #6160607c;
+    position: absolute;
+    font-size: x-small !important;
+    font-weight: 200;
+    right: 80px;
+    top: 0px;
+    bottom: 0px;
+    /* padding-top: 10px; */
+    letter-spacing: 0px !important;   
+    white-space: nowrap;
+    
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  
+
+}
+
+.submit-button {
+    width: 180px;
+    background-color: teal !important;
+    color: white !important;
+    font-size: medium;
+    font-weight: 500;
+    padding: 10px 5px 10px 5px;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+}
+.timer-text{
+    color: #948f8f;
+    font-size: 17px;
+}
+ 
+
+
+
+/* Slider container */
+
+  
+  /* Slider track and handle styles */
+  .ant-slider-track {
+    background-color: lightblue !important;
+  }
+  
+  .ant-slider-dot {
+    border-color: lightblue !important;
+  }
+  
+  .ant-slider-handle {
+    border-color: blue fill !important;
+    background-color: blue fill !important;
+  }
+  

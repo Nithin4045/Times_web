@@ -1,0 +1,214 @@
+/* Page-scoped CSS variables */
+.pageRoot {
+  --bg: #f7f9fc;
+  --panel: #ffffff;
+  --panel-2: #f3f6fb;
+  --card: #ffffff;
+  --card-active: #eef4ff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 6px 24px rgba(2, 6, 23, 0.06);
+  --primary: #2563eb;
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --success-50: #f0fdf4;
+}
+
+/* Full-height grid shell */
+.pageRoot {
+  height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  /* Ensure proper stacking context */
+  position: relative;
+  z-index: 1;
+  /* Force a new stacking context */
+  isolation: isolate;
+  box-sizing: border-box;
+}
+
+.page {
+  display: grid;
+  /* Fixed 25/75 split - updated from 30/70 */
+  grid-template-columns: 25% 75%;
+  height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  /* No gap to ensure panels are exactly adjacent */
+  column-gap: 0;
+  position: relative;
+  /* Ensure proper stacking context */
+  isolation: isolate;
+  /* Prevent any overflow that could cause overlap */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Allow child scroll within grid cells */
+.leftPane,
+.rightPane {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* Ensure panels are fixed in their grid positions */
+  grid-column: auto;
+}
+
+.leftPane {
+  overflow: visible;          /* allow left card borders/shadows to show */
+  position: relative;
+  z-index: 1000;             /* <- much higher than right to ensure it stays on top */
+  background: var(--bg);
+  /* Ensure proper stacking context */
+  isolation: isolate;
+  /* Add a subtle border to make the separation clearer */
+  border-right: 2px solid var(--border);
+  /* Force the left panel to be above everything */
+  transform: translateZ(0);
+  /* Ensure left panel stays in its 25% column */
+  grid-column: 1;
+  /* Prevent any horizontal overflow */
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Right pane scrolls internally */
+.rightPane {
+  overflow: hidden;           /* clip right content to its column */
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  /* Ensure proper stacking context */
+  isolation: isolate;
+  /* Force the right panel to stay below */
+  transform: translateZ(0);
+  /* Ensure right panel stays in its 75% column */
+  grid-column: 2;
+  /* Prevent any horizontal overflow */
+  max-width: 100%;
+  width: 100%;
+}
+
+.leftPane > * {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  position: relative;
+  z-index: 1001;             /* keep above its own backgrounds and right pane */
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15); /* Stronger shadow to make left panel stand out */
+  /* Ensure proper stacking context */
+  isolation: isolate;
+  /* Force the content to be above */
+  transform: translateZ(0);
+  /* Ensure content stays within left panel bounds */
+  max-width: 100%;
+  width: 100%;
+}
+
+.rightPane > * {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  background: var(--panel);
+  position: relative;
+  z-index: 1;                 /* keep below the left rail */
+  /* Ensure proper stacking context */
+  isolation: isolate;
+  /* Force the content to stay below */
+  transform: translateZ(0);
+  /* Ensure content stays within right panel bounds */
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Additional safety measures */
+.leftPane::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+  z-index: 1002;
+  opacity: 0.3;
+}
+
+/* Ensure panels are completely separated */
+.leftPane,
+.rightPane {
+  /* Prevent any margin/padding that could cause overlap */
+  margin: 0;
+  padding: 0;
+  /* Ensure exact positioning */
+  box-sizing: border-box;
+}
+
+/* Empty state for when no job is selected or showing job details */
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.emptyState div {
+  text-align: left;
+  max-width: 500px;
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.emptyState h2 {
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.emptyState p {
+  margin: 0.5rem 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.emptyState strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Responsive design - stack vertically on small screens */
+@media (max-width: 920px) {
+  .page { 
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto 1fr;
+  }
+  .leftPane { 
+    z-index: 1000; 
+    grid-column: 1;
+    grid-row: 1;
+    /* On mobile, left panel takes full width */
+    width: 100%;
+    max-width: 100%;
+  } 
+  .rightPane {
+    grid-column: 1;
+    grid-row: 2;
+    /* On mobile, right panel takes full width below left */
+    width: 100%;
+    max-width: 100%;
+  }
+  .leftPane > * { z-index: 1001; }
+  .leftPane::before { display: none; } /* Hide the indicator on mobile */
+}

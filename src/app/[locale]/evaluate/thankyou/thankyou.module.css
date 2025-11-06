@@ -1,0 +1,26 @@
+/* thankyou/thankyou.module.css */
+
+.thankyou-container {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thankyou-card {
+    width: 600px;
+    text-align: center;
+    font-size: medium;
+    font-weight: 400;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.thankyou-title {
+    background-color: #8356a9 !important;
+    padding: 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    color: white !important;
+    
+}

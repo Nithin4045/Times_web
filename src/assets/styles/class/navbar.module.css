@@ -1,0 +1,43 @@
+.navbarheader {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: white !important;
+    top: 0 !important;
+    position: sticky !important;
+    z-index: 999 !important;
+    box-shadow:0 4px 12px 0 rgba(0, 0, 0, .07), 0 2px 4px rgba(0, 0, 0, .05) !important;
+    /* height: auto !important; */
+
+}
+
+.navbarstudent{
+    display: flex !important;
+    align-items: center !important;
+}
+
+.navbartitle {
+    font-size: 30px !important;
+    color: #9010BF !important;
+    font-weight: bold !important;
+    margin-top: 15px !important;
+    margin-left: 1rem !important;
+}
+
+.navbarmenu {
+    margin-top: 20px !important;
+}
+
+.navbarbadge {
+    background-color: #f5222d !important;
+    position: absolute !important;
+    right: 28px !important;
+    transform: translate(50%, -50%) !important;
+    border-radius: 50% !important;
+}
+
+.avatarlogo{
+    margin-left: 20px !important;
+}
+
+

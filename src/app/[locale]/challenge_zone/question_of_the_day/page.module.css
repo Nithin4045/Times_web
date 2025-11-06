@@ -1,0 +1,810 @@
+/* Question of the Day Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+/* Global Navigation */
+.globalNav {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.navContainer {
+  margin: 0 auto;
+}
+
+.navLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.navLink {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: #5a51e2;
+}
+
+.activeNavLink {
+  color: #5a51e2;
+}
+
+/* Page Container */
+.pageContainer {
+  min-height: 100vh;
+  background-color: #e6ebee;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* Header Bar */
+.headerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.activeTab {
+  color: #5a51e2;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.inactiveTab {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: #d1d5db;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f3f4f6;
+  border-radius: 16px;
+  color: #6c757d;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.backIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* HR Rule */
+.hrRule {
+  border: none;
+  border-top: 1px solid #d1d5db;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.statusLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statusLabel {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+}
+
+.statusText {
+  color: #6c757d;
+  font-family: 'Rubik', sans-serif;
+}
+
+.statusButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.statusButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.statusButton:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.buttonIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Question Card */
+.questionCard {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 48px;
+  position: relative;
+  width: 100%;
+}
+
+.infoIcon {
+  position: absolute;
+  top: 16px;
+  right: 48px;
+  width: 24px;
+  height: 24px;
+  background-color: #fbbf24;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infoText {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.questionSection {
+  margin-bottom: 32px;
+}
+
+.questionNumber {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.questionText {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+/* Options Container */
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.optionLabel:hover {
+  background-color: #f9fafb;
+}
+
+.radioInput {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  accent-color: #5a51e2;
+}
+
+.selectedInput {
+  border-color: #5a51e2;
+  background-color: #5a51e2;
+}
+
+.optionText {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+}
+
+.correctBadge {
+  width: 20px;
+  height: 20px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+.wrongBadge {
+  width: 20px;
+  height: 20px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+.badgeIcon {
+  width: 12px;
+  height: 12px;
+  color: white;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.submitButton {
+  padding: 12px 32px;
+  background-color: #5a51e2;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #4a42c2;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.rightButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.actionButton {
+  padding: 12px 24px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Report Page Styles */
+.reportCard {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 24px;
+  width: 100%;
+}
+
+.reportHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.dateNavigation {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.yearNavigation,
+.monthNavigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navButton {
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.navButton:hover {
+  color: #374151;
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.yearText,
+.monthText {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.reportButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reportButton:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.reportContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.calendarSection {
+  flex-grow: 1;
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background-color: #e5e7eb;
+  border: 1px solid #e5e7eb;
+}
+
+.dayHeader {
+  padding: 8px;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #414141;
+  background-color: #f3f4f6;
+}
+
+.sundayHeader {
+  color: #ef4444;
+}
+
+.calendarDay {
+  position: relative;
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  height: 64px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: white;
+}
+
+.emptyDay {
+  padding: 8px;
+  text-align: center;
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.normalText {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+}
+
+.sundayText {
+  color: #ef4444;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+}
+
+.correctIcon {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrongIcon {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconSvg {
+  width: 12px;
+  height: 12px;
+  color: white;
+}
+
+.statsSection {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.statCard {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.statCard:nth-child(2) {
+  background-color: #faf5ff;
+  border-color: #d8b4fe;
+}
+
+.statCard:nth-child(3) {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+}
+
+.statNumber {
+  color: #22c55e;
+  font-family: 'Rubik', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.statCard:nth-child(2) .statNumber {
+  color: #a855f7;
+}
+
+.statCard:nth-child(3) .statNumber {
+  color: #ef4444;
+}
+
+.statDenominator {
+  color: #414141;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.statLabel {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+}
+
+/* Analysis Page Styles */
+.dateSelectionBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.dateSelectionLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dateLabel {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+}
+
+.dateInputContainer {
+  position: relative;
+}
+
+.dateInput {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.dateInput:focus {
+  outline: 2px solid #5a51e2;
+  outline-offset: 2px;
+  border-color: #5a51e2;
+}
+
+.calendarIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.dayReportButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dayReportButton:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.analysisCard {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 48px;
+  position: relative;
+  width: 100%;
+}
+
+.analysisButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.leftAnalysisButtons {
+  display: flex;
+  gap: 16px;
+}
+
+.rightAnalysisButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.analysisActionButton {
+  padding: 12px 32px;
+  background-color: #6f42c1;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.analysisActionButton:hover {
+  background-color: #5a32a3;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.analysisNavButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: white;
+  border: 2px solid #6f42c1;
+  color: #6f42c1;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.analysisNavButton:hover {
+  background-color: #6f42c1;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+  .reportContent {
+    flex-direction: row;
+  }
+
+  .statsSection {
+    width: 256px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerBar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .statusBar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .rightButtons {
+    justify-content: center;
+  }
+
+  .dateSelectionBar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .analysisButtons {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .leftAnalysisButtons {
+    justify-content: center;
+  }
+
+  .rightAnalysisButtons {
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .questionCard,
+  .analysisCard {
+    padding: 20px;
+  }
+
+  .reportCard {
+    padding: 16px;
+  }
+
+  .calendarDay {
+    height: 48px;
+    padding: 4px;
+  }
+
+  .emptyDay {
+    height: 48px;
+    padding: 4px;
+  }
+
+  .statCard {
+    padding: 12px;
+  }
+
+  .statNumber {
+    font-size: 20px;
+  }
+}

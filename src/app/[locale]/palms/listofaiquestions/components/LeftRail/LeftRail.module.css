@@ -1,0 +1,350 @@
+/* LeftRail container */
+.leftRail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--panel);
+  position: relative;
+  z-index: 2000; /* Ensure it's above everything */
+  overflow: hidden;
+  /* Force proper stacking context */
+  isolation: isolate;
+  transform: translateZ(0);
+  /* Ensure it fits within the 25% left pane */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header section */
+.leftHeader {
+  flex: 0 0 auto;
+  padding: 12px; /* Reduced from 16px */
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  position: relative;
+  z-index: 2001;
+  /* Ensure header fits within container */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.controlsRow {
+  display: flex;
+  flex-direction: row; /* Changed from column to row */
+  gap: 8px; /* Reduced from 12px */
+  width: 100%;
+  align-items: center; /* Center align items in the row */
+}
+
+.fileDate {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-left: 28px; /* align under filename text */
+  margin-top: 2px;
+}
+
+.filterButton {
+  flex: 0 0 auto; /* Don't grow or shrink */
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 6px; /* Reduced from 8px */
+  padding: 6px 10px; /* Reduced from 8px 12px */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px; /* Reduced from 6px */
+  font-size: 0.75rem; /* Reduced from 0.875rem */
+  color: var(--text);
+  transition: background .2s ease, border-color .2s ease;
+  position: relative;
+  z-index: 2002; /* Ensure button is above everything */
+  /* Ensure button fits within container */
+  max-width: 100%;
+  box-sizing: border-box;
+  width: 36px; /* icon-sized button */
+  height: 32px;
+}
+
+.filterButton:hover {
+  background: var(--primary-50);
+  border-color: var(--primary);
+}
+
+.searchWrap {
+  flex: 1; /* Take remaining space */
+  position: relative;
+  width: 100%;
+  z-index: 2002; /* Ensure search wrapper is above everything */
+  box-sizing: border-box;
+}
+
+.searchInput {
+  width: 100%;
+  height: 32px; /* Reduced from 40px */
+  border: 1px solid var(--border);
+  border-radius: 6px; /* Reduced from 8px */
+  padding: 0 10px; /* No left icon now */
+  font-size: 0.75rem; /* Reduced from 0.875rem */
+  background: var(--panel);
+  color: var(--text);
+  position: relative;
+  z-index: 2002; /* Ensure input is above everything */
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-100);
+}
+
+.filterSelect {
+  flex: 0 0 auto; /* Don't grow or shrink */
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 8px;
+  font-size: 0.75rem;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  position: relative;
+  z-index: 2002;
+  box-sizing: border-box;
+  min-width: 90px;
+  max-width: 120px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.filterSelect:hover {
+  border-color: var(--primary);
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-100);
+}
+
+/* Card list section */
+.cardList {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 6px; /* Reduced from 8px */
+  position: relative;
+  z-index: 2000;
+  /* Ensure list fits within container */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.centerState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px; /* Reduced from 40px 20px */
+  color: var(--muted);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.emptyState {
+  padding: 30px 16px; /* Reduced from 40px 20px */
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.75rem; /* Reduced from 0.875rem */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.spinnerLite {
+  display: inline-block;
+  width: 16px; /* Reduced from 20px */
+  height: 16px; /* Reduced from 20px */
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.fileCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px; /* Reduced from 12px */
+  padding: 8px; /* Reduced from 12px */
+  margin: 6px 3px; /* Reduced from 8px 4px */
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+  min-height: 70px; /* Reduced from 84px */
+  width: calc(100% - 6px); /* Account for reduced margins */
+  text-align: left;
+  position: relative;
+  z-index: 2001; /* Ensure cards are above the background */
+  /* Force proper stacking context */
+  isolation: isolate;
+  transform: translateZ(0);
+  /* Ensure cards fit within container */
+  max-width: 100%;
+  box-sizing: border-box;
+  /* Prevent text overflow */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Non-clickable processing cards */
+.fileCard.processingCard {
+  cursor: default;
+  opacity: 0.8;
+  background: var(--panel-2);
+}
+
+.fileCard.processingCard:hover {
+  transform: none;
+  border-color: var(--border);
+}
+
+.fileCard:hover { 
+  transform: translateY(-1px); 
+  border-color: var(--primary); 
+  z-index: 2003; /* Ensure hover state is above everything */
+}
+
+.activeCard { 
+  background: var(--card-active); 
+  border-color: var(--primary); 
+  z-index: 2003; /* Ensure active state is above everything */
+}
+
+.fileTitle {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Reduced from 6px */
+  font-size: 0.85rem; /* Reduced from 0.98rem */
+  font-weight: 700;
+  margin-bottom: 6px; /* Reduced from 8px */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 2002; /* Ensure title is above everything */
+  width: 100%;
+  box-sizing: border-box;
+}
+.fileIcon { 
+  flex: 0 0 auto; 
+  position: relative;
+  z-index: 2002; /* Ensure icon is above everything */
+  font-size: 14px; /* Reduced icon size */
+}
+.fileTitleText { 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  position: relative;
+  z-index: 2002; /* Ensure text is above everything */
+  flex: 1;
+  min-width: 0;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px; /* Reduced from 8px */
+  font-size: 0.65rem; /* Reduced from 0.75rem */
+  position: relative;
+  z-index: 2002; /* Ensure meta row is above everything */
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+.createdAt { 
+  margin-left: auto; 
+  color: var(--muted); 
+  position: relative;
+  z-index: 2002; /* Ensure date is above everything */
+  white-space: nowrap;
+}
+
+.typeBadge {
+  border-radius: 999px;
+  font-size: 0.6rem; /* Reduced from 0.7rem */
+  padding: 1px 6px; /* Reduced from 2px 8px */
+  line-height: 1.2;
+  position: relative;
+  z-index: 2002; /* Ensure badge is above everything */
+  white-space: nowrap;
+}
+.badgeProcessing { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.badgeError { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.badgeDone { background: var(--primary-50); color: var(--primary); border: 1px solid var(--primary-100); }
+
+.countRow { 
+  margin-top: 4px; /* Reduced from 6px */
+  font-size: 11px; /* Reduced from 12px */
+  color: var(--muted); 
+  position: relative;
+  z-index: 2002; /* Ensure count is above everything */
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.errorBox {
+  margin-top: 6px; /* Reduced from 8px */
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 6px; /* Reduced from 8px */
+  padding: 6px 8px; /* Reduced from 8px 10px */
+  font-size: 0.75rem; /* Reduced from 0.85rem */
+  white-space: pre-wrap;
+  position: relative;
+  z-index: 2002; /* Ensure error box is above everything */
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* Additional safety measures for overlays and dropdowns */
+.leftRail * {
+  position: relative;
+  z-index: inherit;
+}
+
+/* Ensure any tooltips or overlays are above everything */
+.leftRail [data-tooltip],
+.leftRail [data-popup],
+.leftRail [data-dropdown] {
+  z-index: 9999 !important;
+}
+
+/* Force all direct children to inherit high z-index */
+.leftRail > * {
+  z-index: 2000 !important;
+}
+
+.leftRail > * > * {
+  z-index: 2001 !important;
+}
+
+/* Ensure file cards and their content are always on top */
+.fileCard,
+.fileCard *,
+.fileCard:hover,
+.fileCard.activeCard {
+  z-index: 2001 !important;
+}
+
+.fileCard:hover *,
+.fileCard.activeCard * {
+  z-index: 2003 !important;
+}

@@ -1,0 +1,256 @@
+/* Coupon Code Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+/* Page Container */
+.pageContainer {
+  min-height: 100vh;
+  background-color: #e6ebee;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Content Wrapper */
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Main Card */
+.mainCard {
+  width: 100%;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 32px;
+}
+
+/* Course Information */
+.courseInfo {
+  margin-bottom: 24px;
+}
+
+.courseText {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+}
+
+.activeStatus {
+  color: #22c55e;
+  font-weight: 500;
+}
+
+/* Coupon Section */
+.couponSection {
+  margin-bottom: 32px;
+}
+
+.sectionTitle {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.sectionDescription {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* Coupon Grid */
+.couponGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .couponGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Coupon Card */
+.couponCard {
+  background-color: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.couponCard:nth-child(2) {
+  background-color: #f0fdf4;
+  border-color: #22c55e;
+}
+
+.couponContent {
+  text-align: center;
+}
+
+.couponName {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.couponCodeContainer {
+  border: 2px dashed #9ca3af;
+  border-radius: 24px;
+  padding: 8px 16px;
+  margin-bottom: 12px;
+}
+
+.couponCode {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.copyLink {
+  color: #5a51e2;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: text-decoration 0.2s;
+}
+
+.copyLink:hover {
+  text-decoration: underline;
+}
+
+.discountBadge {
+  background-color: #fbbf24;
+  color: #92400e;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.validityText {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.timerText {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+}
+
+/* Request Card */
+.requestCard {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.requestContent {
+  text-align: center;
+}
+
+.requestTitle {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.requestDescription {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.requestStatus {
+  color: #22c55e;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #5a51e2;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #4a42c2;
+}
+
+/* Terms Card */
+.termsCard {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.termsTitle {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.termsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.termsItem {
+  color: #414141;
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mainCard {
+    padding: 20px;
+  }
+  
+  .couponGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainCard {
+    padding: 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 16px;
+  }
+  
+  .sectionDescription {
+    font-size: 13px;
+  }
+}

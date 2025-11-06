@@ -1,0 +1,63 @@
+.adminuserstable thead > tr > th {
+  background-color: #7700CC !important;
+  color: white!important;
+  /* border-radius: 0 !important; */
+}
+
+
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  }
+
+
+
+  .contentactions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .contentleft {
+    flex: 1; 
+    margin-top: 20px;
+  }
+  
+  .titlestyle{
+    margin: 0;
+    font-weight: bold;
+    font-size: 21px;
+  }
+
+  .contentright {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .contentaddbutton {
+    background-color: #8356a9 !important;
+    color: white !important;
+     border: none !important;
+  }
+  
+  .searchbutton1 {
+    background-color: #1e4e74 !important;
+  }
+  
+  .searchbutton1 input::placeholder, 
+  .searchbutton1 ::placeholder {
+    color: white !important;
+    opacity: 1;
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+
+  .admincontentdiv{
+    margin-top: 20px;
+  }

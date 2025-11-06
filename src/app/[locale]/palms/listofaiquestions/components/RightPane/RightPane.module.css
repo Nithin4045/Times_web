@@ -1,0 +1,211 @@
+.rightPane {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  position: relative;
+
+  overflow: clip;        
+  contain: paint;        
+  isolation: isolate;    
+
+  z-index: 1;            
+  background: var(--panel);
+  /* Ensure it doesn't overlap the left panel */
+  position: relative;
+  z-index: 1;
+  /* Force proper stacking context */
+  isolation: isolate;
+  transform: translateZ(0);
+  /* Ensure it fits within the 75% right pane */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@supports not (overflow: clip) {
+  .rightPane { overflow: hidden; }
+}
+
+/* Header */
+.topNav {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px; /* Reduced from 12px */
+  align-items: center;
+  padding: 10px 14px; /* Reduced from 12px 16px */
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  z-index: 1;
+  position: relative;
+  /* Ensure header fits within container */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.headerLeft {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 3px; /* Reduced from 4px */
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.filename {
+  font-weight: 800;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.clickableFilename {
+  color: var(--primary);
+  text-decoration: underline;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.clickableFilename:hover {
+  color: var(--primary);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.clickableFilename:active {
+  transform: translateY(1px);
+}
+
+.clickableFilename:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.clickableFilename::after {
+  content: '↗';
+  font-size: 12px;
+  opacity: 0.6;
+  margin-left: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.clickableFilename:hover::after {
+  opacity: 1;
+}
+
+.fileIcon {
+  font-size: 14px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.clickableFilename:hover .fileIcon {
+  opacity: 1;
+}
+
+/* …existing styles remain… */
+
+.countRow {
+  display: inline-flex;
+  gap: 8px; /* Reduced from 10px */
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.8rem; /* Reduced from 0.88rem */
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.countBlock {
+  display: inline-flex;
+  gap: 6px; /* Reduced from 8px */
+  align-items: baseline;
+}
+
+.countLabel {
+  font-weight: 500;
+  opacity: 0.9;
+  font-size: 0.75rem; /* Reduced font size */
+}
+
+.countNumber {
+  font-weight: 800;
+  color: var(--text);
+  font-size: 0.8rem; /* Reduced font size */
+}
+
+.countSeparator {
+  opacity: 0.65;
+}
+
+/* Header search */
+.headerSearchWrap {
+  position: relative;
+  width: 400px; /* Reduced from 460px */
+  max-width: min(40vw, 100%); /* Reduced from 46vw */
+  box-sizing: border-box;
+}
+
+.headerSearchIcon {
+  position: absolute;
+  left: 8px; /* Reduced from 10px */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px; /* Reduced from 14px */
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.headerSearchInput {
+  width: 100%;
+  height: 34px; /* Reduced from 38px */
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 8px; /* Reduced from 10px */
+  padding: 0 10px 0 28px; /* Reduced padding */
+  box-sizing: border-box;
+  font-size: 0.8rem; /* Reduced font size */
+}
+.headerSearchInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-100);
+  outline: none;
+}
+
+/* Scroll area */
+.scrollArea {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 12px 14px 16px; /* Reduced from 14px 16px 18px */
+  position: relative;
+  z-index: 1;
+  /* Ensure scroll area fits within container */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hide Replicate's inner search and stats */
+.hideInnerReplicateUI :global(.pdfSearchRow) {
+  display: none !important;
+}
+.hideInnerReplicateUI :global(.replicateStatsRow) {
+  display: none !important;
+}
+
+@media (max-width: 720px) {
+  .headerSearchWrap { width: 280px; } /* Reduced from 320px */
+}
+@media (max-width: 520px) {
+  .topNav { grid-template-columns: 1fr; align-items: start; }
+  .headerSearchWrap { width: 100%; max-width: 100%; }
+}

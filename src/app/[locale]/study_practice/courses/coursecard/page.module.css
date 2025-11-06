@@ -1,0 +1,115 @@
+.card {
+  background: #fff;
+  border: 1px solid #e6e6ee;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 100%;           /* <— fill the grid column exactly */
+  max-width: none;       /* <— no intrinsic wider max */
+  box-sizing: border-box;/* <— include padding/border in width */
+  overflow: hidden;      /* <— avoid any overflow bumping neighbors */
+}
+
+/* match skeleton to grid column too */
+.skeletonCard {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.disabledCard {
+  opacity: 0.6;
+  pointer-events: none; /* disables all clicks inside card */
+}
+
+.expiredText {
+  font-size: 14px;
+  font-weight: 700;
+  color: #c00; /* red */
+}
+
+.title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #1f2430;
+  margin: 0;
+}
+
+.line {
+  height: 1px;
+  background: #e5e8f0;
+  width: 100%;
+}
+
+.valid {
+  font-size: 13px;
+  color: #444;
+  margin: 0;
+}
+
+.detailsLink {
+  font-size: 13px;
+  color: #5c52f3;
+  text-decoration: none;
+}
+.detailsLink:hover { text-decoration: underline; }
+
+.progressBar {
+  height: 8px;
+  background: #e5e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: #30b24a; /* green fill */
+  width: 0%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.startBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #5c52f3; /* purple button */
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.arrow { margin-left: 6px; }
+
+.percentWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.percent {
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+}
+
+/* ----- Skeleton ----- */
+.skelTitle, .skelValid, .skelLink, .skelBtn, .skelPct {
+  background: #e9ebf2;
+  border-radius: 4px;
+}
+.skelTitle { height: 16px; width: 70%; }
+.skelValid { height: 14px; width: 50%; }
+.skelLink  { height: 14px; width: 30%; }
+.skelBtn   { height: 32px; width: 90px; border-radius: 6px; }
+.skelPct   { height: 14px; width: 40px; }
+.skelFill  { background: #d7d9e0; }

@@ -1,0 +1,842 @@
+:root {
+  /* Color Palette */
+  --color-primary-blue: #3b82f6;
+  --color-secondary-blue: #2563eb;
+  --color-indigo: #6366f1;
+  --color-indigo-light: #eef2ff;
+
+  /* Text Colors */
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #9ca3af;
+
+  /* Border & Divider Colors */
+  --color-border-light: #e5e7eb;
+  --color-border-medium: #d1d5db;
+  --color-divider: #9ca3af;
+
+  /* Background Colors */
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f9fafb;
+  --color-bg-gray: #f3f4f6;
+  --color-bg-blue-light: #f1f4f9;
+  --color-bg-hover: #fafafa;
+
+  /* Status Colors */
+  --color-badge-yellow: #fbbf24;
+  --color-badge-yellow-text: #78350f;
+
+  /* Content Width */
+  --content-max-width: 1100px;
+
+  /* Layout - Top Navigation */
+  --topnav-height: 56px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: auto; /* Allow vertical scrolling but hide scrollbar */
+}
+
+/* Hide scrollbars but keep scrolling functionality */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Additional scrollbar hiding */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Global class to hide scrollbars */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Force hide all scrollbars globally */
+div, section, main, article, aside, nav, header, footer {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+div::-webkit-scrollbar, section::-webkit-scrollbar, main::-webkit-scrollbar, 
+article::-webkit-scrollbar, aside::-webkit-scrollbar, nav::-webkit-scrollbar,
+header::-webkit-scrollbar, footer::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
+.page-subtitle {
+  font-size: 0.8rem;
+  color: #444;
+  margin-top: 0.8rem; 
+  margin-bottom: 1rem;
+}
+
+.contentaddbutton-Params-Upload {
+  background-color: #244081 !important;
+  color: white !important;
+  padding: 1%;
+  border: none;
+  border-radius: 6px;
+}
+
+.File-Uplo-palms {
+  min-height: 240px !important;
+  border-style: dashed !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 4% !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  border-radius: 7px !important;
+}
+
+.generatebuttondiv {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+}
+
+/* Responsive container */
+@media screen and (max-width: 1920px) and (max-height: 1080px) {
+  .container {
+    max-width: 1394% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1177% !important;
+  }
+}
+
+/* ===================================== */
+/* CONSOLIDATED BUTTON STYLES */
+/* ===================================== */
+/*
+ * This section contains all standardized button styles used throughout the application.
+ * All button styles are centralized here to maintain consistency and ease of maintenance.
+ * 
+ * USAGE GUIDE BY PAGE/SECTION:
+ * 
+ * ============ ADMIN PAGES ============
+ * - btn-primary: Admin forms, content creation, general admin actions
+ * - btn-content-add: Add user, add content, add test buttons
+ * - btn-search: Search functionality in admin pages
+ * - btn-generate: AI question generation, PALMS pages
+ * Pages: /admin/users, /admin/course, /admin/batch, /admin/center, /admin/city, etc.
+ * 
+ * ============ EVALUATE/TEST PAGES ============
+ * - btn-submit: Submit answers, checklist submit
+ * - btn-primary: General exam actions
+ * - btn-video: Video exam controls
+ * - btn-back: Navigation in exam pages
+ * Pages: /evaluate/exam, /evaluate/general, /evaluate/checklist, /evaluate/video
+ * 
+ * ============ STUDY/PRACTICE PAGES ============
+ * - btn-primary-blue: Course navigation, primary actions
+ * - btn-with-arrow: View buttons with arrow indicators
+ * - btn-start: Start course buttons on course cards
+ * - btn-reference: Reference material links
+ * - btn-tab: Tab navigation (All Courses, My Courses, etc.)
+ * Pages: /study_practice/courses, /study_practice/tests, /study_practice/magazines
+ * 
+ * ============ COURSE PAGES ============
+ * - btn-start: Start/continue course
+ * - btn-with-arrow: View details, view course
+ * - btn-reference: Course ebooks, materials
+ * - btn-primary-blue: Main course actions
+ * Pages: /study_practice/courses/*, /study_practice/course_ebook, /study_practice/course_materials
+ * 
+ * ============ SUBSCRIPTIONS/MAGAZINES ============
+ * - btn-with-arrow: View subscription details
+ * - btn-tab: Subscription type tabs (All, Active, Expired)
+ * - btn-next: Navigation between subscription steps
+ * - btn-proceed: Payment/checkout actions
+ * - btn-save: Save address changes
+ * - btn-cancel: Cancel editing
+ * Pages: /study_practice/magazines
+ * 
+ * ============ NOTIFICATIONS ============
+ * - btn-tab-compact: Notification type tabs
+ * - btn-pill-cta: Call-to-action buttons
+ * - btn-cta-text: Text-only CTA links
+ * - btn-close: Close notification
+ * - btn-back: Back to previous page
+ * Pages: /notifications
+ * 
+ * ============ LOGIN/AUTH PAGES ============
+ * - btn-login: Primary login button
+ * - btn-back-round: Circular back button
+ * Pages: /login
+ * 
+ * ============ PALMS/AI PAGES ============
+ * - btn-generate: Generate questions, AI operations
+ * - btn-upload: File upload buttons
+ * - btn-primary: Primary actions
+ * Pages: /palms/generate, /palms/listofaiquestions, /palms/pdf-questions, etc.
+ * 
+ * ============ LIVE SESSIONS ============
+ * - btn-join: Join live session button
+ * Pages: /study_practice/live_sessions
+ * 
+ * ============ FORMS & MODALS ============
+ * - btn-save: Save changes
+ * - btn-cancel: Cancel action
+ * - btn-submit: Submit form
+ * - btn-close: Close modal
+ * Pages: Various forms throughout the application
+ * 
+ * ============ CONTENT LISTS ============
+ * - btn-load-more: Load more items
+ * - btn-reference: Reference links
+ * Pages: Various content listing pages
+ * 
+ * ============ SIZE & WIDTH MODIFIERS ============
+ * - btn-small: Compact buttons
+ * - btn-medium: Standard buttons (default)
+ * - btn-large: Prominent buttons
+ * - btn-full-width: Full width buttons
+ * - btn-auto-width: Auto width buttons
+ * 
+ * MIGRATION NOTES:
+ * - Old class names are deprecated. Use the new consolidated classes above.
+ * - Deprecated classes: .login-button → .btn-login
+ * - Deprecated classes: .login-back-button → .btn-back-round
+ * - Deprecated classes: .generatebutton → .btn-generate
+ * - Deprecated classes: .contentaddbutton → .btn-content-add
+ * - Deprecated classes: .view-btn → .btn-with-arrow
+ * - Deprecated classes: .submit-button → .btn-submit
+ */
+
+/* ============ PRIMARY BUTTONS ============ */
+/* Primary Purple Button - Used in: Admin pages, forms, content upload */
+.btn-primary {
+  background-color: #8356a9 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #7a4a8f !important;
+}
+
+.btn-primary:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}
+
+/* Primary Blue Button - Used in: Course pages, subscriptions */
+.btn-primary-blue {
+  background-color: #5b5ce2 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary-blue:hover {
+  background-color: #4a46c0 !important;
+}
+
+.btn-primary-blue:disabled {
+  background-color: #d1d5db !important;
+  color: #9ca3af !important;
+  cursor: not-allowed !important;
+}
+
+/* ============ BUTTON WITH ARROW (RIGHT) ============ */
+/* CTA Button with Arrow - Used in: Magazines, courses, notifications */
+.btn-with-arrow {
+  background: #5b5ce2;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.btn-with-arrow:hover:not(.disabled) {
+  background: #4a46c0;
+}
+
+.btn-with-arrow.disabled {
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.btn-with-arrow .arrow {
+  font-size: 18px;
+  margin-left: auto;
+}
+
+/* Start Button with Arrow - Used in: Course cards */
+.btn-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #5c52f3;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-start:hover {
+  background: #4a46c0;
+}
+
+.btn-start .arrow {
+  margin-left: 6px;
+}
+
+/* ============ SECONDARY/OUTLINE BUTTONS ============ */
+/* Reference Button - Used in: Course ebooks, materials */
+.btn-reference {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background: #fff;
+  padding: 0 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  color: #0f172a;
+}
+
+.btn-reference:hover {
+  border-color: #5b5ce2;
+  color: #5b5ce2;
+}
+
+.btn-reference .arrow-icon {
+  font-size: 14px;
+  color: #5b5ce2;
+}
+
+/* ============ TAB BUTTONS ============ */
+/* Tab Button - Used in: Magazines, notifications, subscriptions */
+.btn-tab {
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  color: #5b5ce2;
+  border: 1px solid transparent;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-tab.active {
+  background: #5b5ce2;
+  color: white;
+  border-color: #5b5ce2;
+  box-shadow: 0 2px 4px rgba(91, 92, 226, 0.2);
+}
+
+.btn-tab:hover:not(.active) {
+  background: #f8f9ff;
+  color: #5b5ce2;
+  border-color: #5b5ce2;
+}
+
+/* Compact Tab Button - Used in: Notifications page */
+.btn-tab-compact {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: #e1e5ec;
+  color: #2d2f45;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.btn-tab-compact:hover {
+  filter: brightness(0.97);
+}
+
+.btn-tab-compact.active {
+  background: #5c52f3;
+  color: #fff;
+}
+
+/* ============ BACK BUTTONS ============ */
+/* Back Button - Used in: Navigation, pages */
+.btn-back {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+/* Round Back Button - Used in: Login page */
+.btn-back-round {
+  background-color: #0a6498 !important;
+  border: none !important;
+  color: #fff !important;
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50px !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-back-round:hover {
+  background-color: #085a87 !important;
+}
+
+/* ============ ACTION BUTTONS ============ */
+/* Next/Proceed Button - Used in: Forms, subscriptions */
+.btn-next {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-next:hover {
+  background: #5048e5;
+}
+
+.btn-next .arrow {
+  font-size: 16px;
+}
+
+/* Proceed Button (Larger) - Used in: Payment, subscriptions */
+.btn-proceed {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-proceed:hover {
+  background: #5048e5;
+}
+
+/* ============ SUBMIT BUTTONS ============ */
+/* Submit Button - Used in: Evaluate, checklist, forms */
+.btn-submit {
+  background-color: #8356a9 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #7a4a8f !important;
+}
+
+.btn-submit:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed !important;
+}
+
+/* ============ SAVE/CANCEL BUTTONS ============ */
+/* Save Button - Used in: Forms, edit modes */
+.btn-save {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-save:hover {
+  background: #059669;
+}
+
+/* Cancel Button - Used in: Forms, edit modes */
+.btn-cancel {
+  background: #e5e7eb;
+  color: #6b7280;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background: #d1d5db;
+}
+
+/* ============ SPECIAL PURPOSE BUTTONS ============ */
+/* Generate Button - Used in: AI/PALMS pages, admin pages */
+.btn-generate {
+  background-color: #8356A9 !important;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-generate:hover {
+  background-color: #9254de !important;
+}
+
+/* Content Add Button - Used in: Admin pages, content management */
+.btn-content-add {
+  background-color: #8356a9 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-content-add:hover {
+  background-color: #7a4a8f !important;
+}
+
+/* Search Button - Used in: Admin pages */
+.btn-search {
+  background-color: #1e4e74 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-search:hover {
+  background-color: #164060 !important;
+}
+
+/* Upload Button - Used in: PALMS, file uploads */
+.btn-upload {
+  background-color: #244081 !important;
+  color: white !important;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-upload:hover:not(.disabled) {
+  transform: scale(1.05);
+}
+
+.btn-upload:active:not(.disabled) {
+  transform: scale(0.98);
+}
+
+.btn-upload.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Join Button - Used in: Live sessions */
+.btn-join {
+  background: #cfd2fb;
+  color: #2d2c76;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-join:hover {
+  background: #b8bef8;
+}
+
+/* Video Button - Used in: Video pages */
+.btn-video {
+  background-color: #8356a9 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-video:hover {
+  background-color: #7a4a8f !important;
+}
+
+/* ============ TEXT/LINK BUTTONS ============ */
+/* Text Button (No background) - Used in: Notifications, links */
+.btn-text {
+  background: transparent;
+  border: none;
+  color: #6366f1;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.btn-text:hover {
+  color: #5048e5;
+}
+
+/* CTA Text Button - Used in: Notifications */
+.btn-cta-text {
+  background: transparent;
+  border: none;
+  color: #6b6fe3;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.btn-cta-text:hover {
+  color: #5048e5;
+}
+
+/* ============ PILL/ROUNDED BUTTONS ============ */
+/* Pill CTA Button - Used in: Notifications, empty states */
+.btn-pill-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #e2e7ff;
+  color: #6b6fe3;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-pill-cta:hover {
+  background: #f7f9ff;
+}
+
+.btn-pill-cta .arrow {
+  font-weight: 700;
+}
+
+/* Load More Button - Used in: Content lists */
+.btn-load-more {
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  padding: 4px 12px;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.btn-load-more:hover {
+  border-color: #5b5ce2;
+  color: #5b5ce2;
+}
+
+/* ============ ICON BUTTONS ============ */
+/* Close Button - Used in: Modals, notifications */
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.2s ease;
+}
+
+.btn-close:hover {
+  color: #000;
+}
+
+/* ============ LOGIN PAGE BUTTONS ============ */
+/* Login Button - Used in: Login page */
+.btn-login {
+  padding: 10px !important;
+  background-color: #8956a9 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 10px !important;
+  cursor: pointer;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+  transition: background-color 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #7a4a8f !important;
+}
+
+.btn-login:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed !important;
+}
+
+/* ============ BUTTON SIZE VARIANTS ============ */
+.btn-small {
+  padding: 6px 12px !important;
+  font-size: 12px !important;
+}
+
+.btn-medium {
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+}
+
+.btn-large {
+  padding: 14px 28px !important;
+  font-size: 16px !important;
+}
+
+/* ============ BUTTON WIDTH VARIANTS ============ */
+.btn-full-width {
+  width: 100% !important;
+}
+
+.btn-auto-width {
+  width: auto !important;
+}
+
+/* ===================================== */
+/* END OF BUTTON STYLES */
+/* ===================================== */
+
+/* ===== Top Navigation Alignment Utilities ===== */
+/* Use these classes to align page content with the top navigation */
+
+/* For pages that need to start below the top navigation */
+.page-with-topnav {
+  padding-top: var(--topnav-height);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* For full-height pages (like those with height: 100vh) */
+.page-with-topnav-fullheight {
+  height: 100vh;
+  padding-top: var(--topnav-height);
+  box-sizing: border-box;
+}
+
+/* For containers inside pages that need proper spacing */
+.container-below-topnav {
+  margin-top: var(--topnav-height);
+}
+
+/* For pages with fixed positioning that need to account for topnav */
+.fixed-below-topnav {
+  top: var(--topnav-height);
+}

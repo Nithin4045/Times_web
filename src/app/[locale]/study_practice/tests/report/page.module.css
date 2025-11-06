@@ -1,0 +1,266 @@
+/* Test Report Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+.container {
+  background-color: #e6ebee;
+  min-height: 100vh;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* Header Styles */
+.header {
+  margin: 0 auto;
+  padding: 0 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.breadcrumb {
+  margin-bottom: 16px;
+}
+
+.breadcrumbText {
+  color: #5a51e2;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.breadcrumbSeparator {
+  color: #414141;
+  font-size: 18px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.testRef {
+  color: #5a51e2;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.separator {
+  color: #414141;
+  font-size: 22px;
+}
+
+.areaName {
+  color: #414141;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6B7280;
+  font-weight: 500;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.backButton:active {
+  transform: translateY(0);
+}
+
+.backIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Stats Grid */
+.statsGrid {
+  margin: 0 auto;
+  padding: 0 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.statCard {
+  background-color: white;
+  border-radius: 12px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.statLabel {
+  color: #414141;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  color: #5a51e2;
+  font-weight: 700;
+  font-size: 48px;
+}
+
+/* Special Cards */
+.rankCard {
+  background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%);
+  border-radius: 12px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.rankValue {
+  color: #414141;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.percentileCard {
+  background: linear-gradient(135deg, #5a51e2 0%, #7C3AED 100%);
+  border-radius: 12px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.percentileLabel {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.percentileValue {
+  color: white;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+/* Performance Note */
+.performanceNote {
+  margin: 0 auto 24px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.noteText {
+  color: #414141;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.noteText:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.noteText strong {
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.actionButtons {
+  margin: 0 auto;
+  padding: 0 0 32px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.primaryButton {
+  background-color: #5a51e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 48px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+}
+
+.secondaryButton {
+  background-color: white;
+  color: #5a51e2;
+  border: 2px solid #5a51e2;
+  border-radius: 8px;
+  padding: 16px 48px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.secondaryButton:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statValue,
+  .rankValue {
+    font-size: 36px;
+  }
+
+  .percentileValue {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,78 @@
+.container {
+  display: grid;
+  gap: 16px;
+  color: #0f172a;
+  font-size: 14px;
+}
+
+/* Tabs (pill style) */
+.tabs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.tabBtn {
+  border: 1px solid #dfe3fb;
+  background: #f3f4ff;
+  color: #3b4cca;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, background 0.15s ease;
+  text-decoration: none;
+}
+.tabBtn:hover {
+  box-shadow: 0 4px 12px rgba(34, 54, 160, 0.12);
+}
+.tabActive {
+  background: #5b5ce2;
+  color: #fff;
+  border-color: #5b5ce2;
+}
+
+/* Content */
+.contentArea {
+  padding-top: 12px;
+}
+
+.htmlSection {
+  background: #fff;
+  padding: 18px;
+  border-radius: 6px;
+  border: 1px solid #e6e8f0;
+  overflow-x: auto;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+.tableBordered th,
+.tableBordered td {
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+}
+.tHead th {
+  background: #f7f7f7;
+  font-weight: 700;
+  text-align: center;
+}
+.col25 {
+  width: 25%;
+}
+.tLeftR {
+  text-align: left;
+}
+.tCR {
+  text-align: center;
+}
+.table a {
+  color: #1677ff;
+  text-decoration: none;
+}
+.table a:hover {
+  text-decoration: underline;
+}

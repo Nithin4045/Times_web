@@ -1,0 +1,77 @@
+/* Limit modal body height & enable scroll */
+.detailsModal :global(.ant-modal-body) {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  color: #8c8c8c;
+  padding: 24px 0;
+}
+.emptyStateIcon { font-size: 28px; margin-bottom: 6px; }
+.emptyStateTitle { font-weight: 600; margin-bottom: 4px; color: #1f1f1f; }
+.emptyStateDescription { font-size: 12px; }
+
+/* List + rows */
+.editorList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pairRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fff;
+}
+.pairInputs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* Inputs */
+.keyInput { font-weight: 500; }
+.promptInput { font-size: 13px; }
+
+/* Row action buttons */
+.rowActions {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.iconButton {
+  appearance: none;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1;
+}
+.iconButton:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+.removeButton {
+  border-color: #ffccc7;
+  color: #cf1322;
+}
+
+/* Footer */
+.footerBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.footerLeft,
+.footerRight {
+  display: flex;
+  gap: 8px;
+}

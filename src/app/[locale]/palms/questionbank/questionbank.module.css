@@ -1,0 +1,22 @@
+/* app/questionbank/questionbank.module.css */
+
+.container {
+  padding: 24px;
+  background-color: #f9f9f9;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.table {
+  background: white;
+  border-radius: 8px;
+}
+
+.column {
+  font-size: 14px;
+  white-space: pre-wrap;
+}

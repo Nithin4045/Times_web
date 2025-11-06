@@ -1,0 +1,265 @@
+/* OTP top row: number (left) + resend (right) */
+.otpHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 6px 0 8px;
+  padding: 0 2px;
+}
+
+.resendRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.resendBtn {
+  height: 28px;
+  border-radius: 8px;
+  padding: 0 12px;
+}
+
+.resendBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Make sure input & buttons share the same width */
+.form :global(.ant-form-item) {
+  margin-bottom: 10px;
+}
+
+.input,
+.loginButton {
+  width: 100%;
+  height: 25%;
+}
+
+/* Login Page Container */
+.loginContainer {
+  margin: -8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+  align-items: center;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+/* Carousel Container */
+.carouselContainer {
+  background: linear-gradient(135deg, #ebc52f);
+  background-repeat: no-repeat !important;
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Login Form Container */
+.loginFormContainer {
+  transition: transform 0.8s ease-in-out;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.loginFormContainer.animate {
+  transform: rotateY(-10deg);
+  animation: bookOpen 0.6s ease-in-out forwards;
+}
+
+/* Form Wrapper */
+.formWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: flex-start;   /* stack tightly from top */
+  gap: 50px;                      /* small controlled gaps */
+  height: auto;                  /* no forced 80vh */
+  padding-top: 54px;
+}
+
+/* Logo and Site Name Container */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.logoImage {
+  width: 100%;
+}
+
+.siteName {
+  color: #390367;
+  font-size: 32px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Form Section */
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.headerSection { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 12px; 
+  margin-bottom: 8px;        /* ↓ less gap to inputs */
+}
+
+.headerTitle {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #244081;
+}
+
+/* Back Button */
+.backButton {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #244081;
+}
+
+.backButton button {
+  background: #244081;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.backButton button:hover {
+  background: #390367;
+  transform: scale(1.1);
+}
+
+/* Error Display */
+.errorDisplay {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Smaller overall spacing inside form */
+.form { margin-top: 6px; }
+.form :global(.ant-form-item) { margin-bottom: 8px; }  /* tighter */
+
+
+.input {
+  border: 1px solid #ccc !important;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  height: 48px;               /* ↑ taller */
+  padding: 10px 14px;
+  font-size: 16px;            /* ↑ larger text */
+  box-sizing: border-box;
+}
+
+/* Primary buttons (Send / Verify) — keep blue fixed, no white on hover */
+.loginButton {
+  background: linear-gradient(135deg, #244081, #390367) !important;
+  border: none !important;
+  border-radius: 10px;
+  color: #fff !important;
+  font-weight: bold;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* lock color on hover/focus/active */
+.loginButton:hover,
+.loginButton:focus,
+.loginButton:active,
+:global(.ant-btn).loginButton:hover,
+:global(.ant-btn).loginButton:focus,
+:global(.ant-btn).loginButton:active {
+  background: linear-gradient(135deg, #244081, #390367) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* disabled state still muted */
+.loginButton:disabled {
+  background: #cfcfcf !important;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+/* Animation */
+@keyframes bookOpen {
+  0% {
+    transform: perspective(3500px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(3500px) rotateY(-365deg) translateX(-2%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loginContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  
+  .carouselContainer {
+    height: 200px;
+  }
+  
+  .formContent {
+    width: 80%;
+    height: 60vh;
+  }
+  
+  .siteName {
+    font-size: 24px;
+  }
+  
+  .headerTitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formContent {
+    width: 90%;
+  }
+  
+  .siteName {
+    font-size: 20px;
+  }
+  
+  .headerTitle {
+    font-size: 20px;
+  }
+} 

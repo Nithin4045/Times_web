@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.error {
+  margin-bottom: 12px;
+}
+
+.table {
+  width: 100%;
+}
+
+.feedback {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

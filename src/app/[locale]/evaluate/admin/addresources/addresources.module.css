@@ -1,0 +1,28 @@
+.container {
+    padding: 1% 1.4% 2% 1.4% !important;
+
+}
+
+
+.Content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .ContentCompilerHeader {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 5.4% !important;
+  }
+  
+  .tableData{
+    margin-top: 20px;
+  }
+  .tableData th{
+    background-color: #7700cc !important;
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+  
+  

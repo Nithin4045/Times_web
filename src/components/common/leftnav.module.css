@@ -1,0 +1,694 @@
+.sider {
+  height: 100vh;
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  background: #ffffff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  z-index: 1000;
+  transition: width 0.25s ease-in-out, padding 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px 12px;
+}
+
+.brandCode {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #272160;
+  margin: 0;
+}
+
+/* Adjusted nav height to account for links section + account footer */
+.nav {
+  padding: 8px 0 16px 0;
+  overflow-y: auto;
+  height: calc(100vh - 84px - 180px - 96px);
+  scrollbar-width: none;
+}
+
+.group {
+  margin: 4px 0;
+}
+
+.groupHeader {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.icon {
+  display: inline-flex;
+  min-width: 22px;
+  min-height: 22px;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupHeader:hover {
+  background: #5c52f3;
+  color: #ffffff;
+}
+
+.groupHeader:hover .icon {
+  color: #ffffff;
+}
+
+.groupHeaderActive {
+  background: #5c52f3;
+  color: #ffffff;
+}
+
+.groupHeaderActive .icon {
+  color: #ffffff;
+}
+
+.groupLabel {
+  flex: none;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+.chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #9aa1ac;
+  border-bottom: 2px solid #9aa1ac;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+  margin-left: 2px;
+}
+
+.groupHeader:hover .chevron {
+  border-color: #ffffff;
+}
+
+.groupHeaderActive .chevron {
+  border-color: #ffffff;
+}
+
+.chevronOpen {
+  transform: rotate(-135deg);
+}
+
+.childList {
+  padding: 0 0 0 20px;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.25s ease-in-out, opacity 0.25s ease-in-out, padding 0.25s ease-in-out;
+}
+
+.group[data-open="true"] .childList {
+  max-height: 2000px;
+  opacity: 1;
+  padding-top: 4px;
+  overflow: visible;
+}
+
+.childItem {
+  list-style: none;
+  margin: 6px 0;
+  width: 100%;
+}
+
+.childLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #323843;
+  font-size: 14px;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.childLink:link,
+.childLink:visited {
+  color: inherit;
+}
+
+.childLink:not(.childLinkActive):hover,
+.childLink:not(.childLinkActive):focus-visible {
+  background: #5c52f3;
+  color: #ffffff;
+}
+
+.childLink:hover .dot {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #5c52f3;
+}
+
+.childLinkActive,
+.childLinkActive:hover,
+.childLinkActive:focus,
+.childLinkActive:focus-visible {
+  background: #5c52f3;
+  color: #ffffff !important;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c2c8d2;
+  flex: 0 0 7px;
+}
+
+.dotActive {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #5c52f3;
+}
+
+.childLinkActive .dot {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #5c52f3;
+}
+
+.childText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.group[data-collapsed="true"] .groupLabel,
+.group[data-collapsed="true"] .chevron {
+  display: none;
+}
+
+.group[data-collapsed="true"] .groupHeader {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+/* ===== Tooltip flyout content ===== */
+.lightTooltip {
+  filter: none !important;
+}
+
+.lightTooltip :global(.ant-tooltip-inner) {
+  background-color: #fff !important;
+  color: #323843 !important;
+  border: 1px solid #fff !important;
+  box-shadow: none !important;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.lightTooltip :global(.ant-tooltip-arrow) {
+  display: none;
+}
+
+.lightTooltip :global(.ant-tooltip-inner * ) {
+  opacity: 1 !important;
+}
+
+.lightTooltip :global(.ant-tooltip-content) {
+  padding: 0;
+}
+
+.flyout {
+  min-width: 220px;
+  max-width: 280px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.flyoutList {
+  margin: 0;
+  padding: 8px;
+}
+
+.flyoutItem {
+  list-style: none;
+  margin: 2px 0;
+  width: 100%;
+}
+
+.flyoutLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #323843;
+  font-size: 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flyoutLink:hover,
+.flyoutLink:focus-visible {
+  background: #5c52f3;
+  color: #ffffff;
+}
+
+.flyoutLink:hover .flyoutDot {
+  background: #ffffff;
+}
+
+.flyoutDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c2c8d2;
+  flex: 0 0 6px;
+}
+
+.flyoutText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sectionLabel {
+  padding: 2px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+/* ===== Social Media & App Links Section ===== */
+.linksSection {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 70px;
+  padding: 16px 12px;
+  border-top: 1px solid #e9ecf3;
+  background: #ffffff;
+  transition: all 0.25s ease-in-out;
+}
+
+.linksSection[data-collapsed="true"] {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  bottom: 70px;
+}
+
+.collapsedIconGroup {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.collapsedIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5f6fa;
+  color: #5c52f3;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.collapsedIcon:hover {
+  background: #5c52f3;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(92, 82, 243, 0.3);
+}
+
+.socialPopup,
+.appPopup {
+  min-width: 200px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.popupTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7c8291;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.popupSocialIcons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.popupSocialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5f6fa;
+  color: #5c52f3;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.popupSocialLink:hover {
+  background: #5c52f3;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(92, 82, 243, 0.3);
+}
+
+.popupAppLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.popupAppLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f5f6fa;
+  color: #323843;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.popupAppLink:hover {
+  background: #5c52f3;
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(92, 82, 243, 0.2);
+}
+
+.accountPopup {
+  min-width: 160px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.accountPopupInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.accountPopupAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #5c52f3;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  line-height: 48px;
+  text-align: center;
+}
+
+.accountPopupName {
+  font-weight: 700;
+  font-size: 16px;
+  color: #222;
+  text-align: center;
+}
+
+.accountPopupLogout {
+  appearance: none;
+  background: transparent;
+  border: 1px solid #4c57ff;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #4c57ff;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.accountPopupLogout:hover {
+  background: #4c57ff;
+  color: #ffffff;
+}
+
+.socialBlock {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e9ecf3;
+}
+
+/* Collapsible Header */
+.collapsibleHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.collapsibleHeader:hover {
+  opacity: 0.8;
+}
+
+.collapsibleTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7c8291;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.collapsibleChevron {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #7c8291;
+  transition: transform 0.2s ease;
+}
+
+.collapsibleChevron.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.socialTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7c8291;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f5f6fa;
+  color: #5c52f3;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: #5c52f3;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(92, 82, 243, 0.3);
+}
+
+.socialLink svg {
+  width: 20px;
+  height: 20px;
+}
+
+.appBlock {
+  margin-top: 16px;
+}
+
+
+.appLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.appLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f5f6fa;
+  color: #323843;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.appLink:hover {
+  background: #5c52f3;
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(92, 82, 243, 0.2);
+}
+
+.appLink svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.appLink span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Account footer ===== */
+.account {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border-top: 1px solid #e9ecf3;
+  padding-top: 12px;
+}
+
+.accountInner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #5c52f3;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0px;
+  padding: 0;
+  margin: 0;
+  line-height: 36px;
+  text-align: center;
+}
+
+.accountText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.accountName {
+  font-weight: 700;
+  font-size: 16px;
+  color: #222;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accountLogout {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #4c57ff;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+
+.accountLogout:hover {
+  color: #3a43e6;
+}
+
+.account[data-collapsed="true"] {
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+  border-top: 1px solid #e9ecf3;
+}
+
+.account[data-collapsed="true"] .avatar {
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  line-height: 44px;
+  padding: 0;
+  margin: 0;
+}
+

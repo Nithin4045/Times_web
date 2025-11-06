@@ -1,0 +1,212 @@
+/* Container & header */
+.container {
+  min-height: 100dvh;
+  padding-top: var(--topnav-height, 56px);
+  box-sizing: border-box;
+}
+
+.header {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pill {
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 6px 10px;
+  line-height: 1;
+}
+.pillLive { color: #065f46; background: #dcfce7; border: 1px solid #86efac; }
+.pillFlexi { color: #1e40af; background: #dbeafe; border: 1px solid #93c5fd; }
+.pillOffline { color: #92400e; background: #ffedd5; border: 1px solid #fdba74; }
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  padding-top: 2px;
+}
+.metaItem { display: flex; gap: 6px; align-items: baseline; }
+.metaLabel { font-size: 12px; color: #6b7280; }
+.metaValue { font-size: 13px; color: #111827; font-weight: 700; }
+.mergedNote { font-style: normal; color: #6b7280; font-weight: 600; }
+
+/* Grid of session cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* Card */
+.card {
+  border: 1px solid #eef0f3;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(16,24,40,.06), 0 2px 8px rgba(16,24,40,.04);
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.cardTop {
+  display: grid;
+  gap: 6px;
+}
+
+.when {
+  font-size: 12.5px;
+  color: #374151;
+  font-weight: 600;
+}
+
+.topic {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+}
+
+/* Badges row */
+.infoRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111827;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 4px 8px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12.5px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 120ms ease, filter 120ms ease, opacity 120ms ease;
+}
+.btn:hover { transform: translateY(-1px); filter: brightness(0.98); }
+
+.btnPrimary { background: #5a41d4; color: #fff; }
+.btnSecondary { background: #0ea5e9; color: #fff; }
+.btnGhost { background: #ffffff; color: #1f2937; border-color: #e5e7eb; }
+
+.btnDisabled,
+.btn[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* Empty state */
+.empty {
+  border: 1px dashed #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  color: #6b7280;
+}
+.emptyIcon { font-size: 24px; }
+.emptyText { font-weight: 800; color: #111827; }
+.emptySub { font-size: 13px; }
+
+/* Error */
+.errorBox {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #7f1d1d;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* Shimmer Skeleton */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skelCard {
+  border: 1px solid #eef0f3;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(16,24,40,.06), 0 2px 8px rgba(16,24,40,.04);
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.skelLineWide,
+.skelLine,
+.skelChip,
+.skelBtn,
+.skelBtnGhost {
+  background: linear-gradient(90deg, #f2f4f7 0%, #e9edf3 50%, #f2f4f7 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+  border-radius: 8px;
+}
+
+.skelLineWide { height: 16px; width: 70%; }
+.skelLine     { height: 14px; width: 55%; }
+
+.skelMetaRow { display: flex; gap: 8px; }
+.skelChip    { height: 12px; width: 90px; border-radius: 999px; }
+
+.skelTrack {
+  height: 8px;
+  background: #ecf1f7;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+.skelTrack::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  background: linear-gradient(90deg, #e9edf3 0%, #f2f4f7 50%, #e9edf3 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+
+.skelActions { display: flex; gap: 8px; }
+.skelBtn     { height: 34px; width: 120px; }
+.skelBtnGhost{ height: 34px; width: 100px; border: 1px solid #e5e7eb; background: #fff; }

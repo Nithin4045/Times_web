@@ -1,0 +1,100 @@
+.container {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #6a0dad;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .addButton {
+    margin-bottom: 20px;
+  }
+  
+  .selectDropdown {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .selectedStack {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .cardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .cardContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .subjectName {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .assignButton {
+    font-size: 14px;
+  }
+  
+  .moreIcon {
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+  }
+  
+  
+  .selectedStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  
+
+  .modalContent {
+    max-height: 100vh; 
+    overflow-y: auto; /* Enable scrolling */
+    padding-right: 8px; /* Avoid content cut-off by scrollbar */
+  }
+  
+  .searchAndChipsContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .selectDropdown {
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+  
+  .selectedChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  

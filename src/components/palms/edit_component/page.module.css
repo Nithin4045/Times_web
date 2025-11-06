@@ -1,0 +1,119 @@
+/* Make modal body scroll, keep footer sticky */
+.editModal :global(.ant-modal-body) {
+  max-height: 65vh;
+  overflow: auto;
+  padding-bottom: 72px; /* space for sticky footer */
+}
+
+/* Sticky footer inside the scrollable body */
+.footer {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 0 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 28px);
+  border-top: 1px solid #f0f0f0;
+  margin-top: 12px;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  font-weight: 600;
+  font-size: 13px;
+  color: #1f1f1f;
+}
+
+.formTextArea {}
+
+/* Options */
+.optionsEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.noOptionsMessage {
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
+.optionEditor {
+  display: grid;
+  grid-template-columns: 28px 1fr 36px; /* label, input, remove */
+  gap: 8px;
+  align-items: center;
+}
+
+.optionLabel {
+  font-weight: 600;
+  text-align: center;
+  color: #434343;
+}
+
+.optionInput {}
+
+/* Remove pill button */
+.removeOptionButton {
+  appearance: none;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1;
+  color: #cf1322;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.removeOptionButton:hover:not(:disabled) {
+  background: #fff1f0;
+  border-color: #ffa39e;
+  color: #a8071a;
+}
+.removeOptionButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Add option button */
+.addOptionButton {
+  appearance: none;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: fit-content;
+  font-weight: 500;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.addOptionButton:hover {
+  background: #fafafa;
+  border-color: #bfbfbf;
+}
+
+.formSelect { width: 100%; }
+
+/* Mobile-friendly */
+@media (max-width: 640px) {
+  .modalContent { gap: 12px; }
+  .optionEditor {
+    grid-template-columns: 24px 1fr 32px;
+  }
+  .addOptionButton {
+    width: 100%;
+    text-align: center;
+  }
+}

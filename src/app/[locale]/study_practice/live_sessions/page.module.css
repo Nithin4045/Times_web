@@ -1,0 +1,154 @@
+/* Layout */
+.container {
+  display: grid;
+  gap: 16px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.error {
+  color: #c00;
+  font-weight: 600;
+}
+
+/* Progress */
+.progressWrap {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 8px;
+  background: #e9f0e6;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #44c140;
+  transition: width 0.3s ease;
+}
+
+.progressMeta {
+  flex-shrink: 0;
+  color: #64748b;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.progressPct {
+  color: #5b5ce2;
+  font-weight: 800;
+}
+
+.tabBarSeparate {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 2px 0 8px;
+}
+
+.tabBtn {
+  appearance: none;
+  border: 1px solid #dfe3fb;
+  background: #ffffff;
+  color: #475569;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.tabBtn:hover {
+  border-color: #b9bef7;
+  box-shadow: 0 2px 10px rgba(91,92,226,.08);
+}
+.tabBtnActive {
+  background: #5b5ce2;
+  color: #fff;
+  border-color: #5b5ce2;
+  box-shadow: 0 4px 16px rgba(91,92,226,.25);
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+/* Ant table overrides */
+.table :global(.ant-table-thead > tr > th) {
+  background: #f8f9ff !important;
+  font-weight: 800 !important;   /* header bold only */
+  color: #0f172a !important;
+}
+.table :global(.ant-table-tbody > tr > td) {
+  padding: 12px !important;
+}
+
+/* Row highlight for first upcoming */
+.rowHighlight :global(td) {
+  background: #e6f7c9 !important;
+  font-weight: 700;
+}
+
+.thText { font-weight: 800; }
+.topicBold { font-weight: 800; }
+
+/* Join button */
+.joinBtn {
+  background: #cfd2fb;
+  color: #2d2c76;
+  padding: 10px 16px;        /* taller */
+  border-radius: 20px;
+  font-weight: 700;
+  border: 1px solid #cfd2fb;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.joinBtn:hover { filter: brightness(0.98); }
+.joinBtnPrimary {
+  background: #5b5ce2;
+  color: #fff;
+  border-color: #5b5ce2;
+}
+.joinBtnDisabled,
+.joinBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btnArrow { font-size: 14px; }
+
+/* Status icons */
+.okIcon { color: #22c55e; font-size: 18px; }
+.noIcon { color: #ef4444; font-size: 18px; }
+
+/* Empty & Load more */
+.emptyWrap { padding: 18px; }
+.loadMore { text-align: center; padding: 14px 0 18px; }
+.loadMoreBtn {
+  border: none;
+  background: transparent;
+  color: #5b5ce2;
+  font-weight: 700;
+  cursor: pointer;
+}
+.loadMoreBtn:hover { text-decoration: underline; }

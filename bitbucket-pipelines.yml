@@ -1,0 +1,31 @@
+definitions:
+  caches:
+    nextcache: .next/cache
+image: node:21.7.3
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Dependencies validations
+          cache:
+            - node
+            - nextcache
+          script:
+            - node -v
+            - npm install
+#            - npm run test
+      - step:
+          name: Code linting
+          script:
+            - npm install eslint
+            - npx eslint .
+          cache:
+            - node
+      - step:
+          name: Build code
+          cache:
+            - node
+            - nextcache
+          script:
+            - npm install
+            - npm run build

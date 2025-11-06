@@ -1,0 +1,202 @@
+.page {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding-top: var(--topnav-height, 56px);
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 6px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #1d1d1f;
+}
+
+/* Controls row */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* Left pills/links */
+.pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pill {
+  text-decoration: none;
+  background: #f6f7fb;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #5d5f72;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid #e6e8ef;
+}
+
+/* Right filters */
+.rightFilters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.filterLabel {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Table card */
+.tableCard {
+  background: #ffffff;
+  border: 1px solid #e5e7f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Ant Table tweaks */
+.antTableTight :global(.ant-table-thead > tr > th) {
+  background: #f4f6ff;
+  color: #5d5f72;
+  font-weight: 600;
+  border-bottom: 1px solid #e5e7f0;
+  height: 40px;
+  padding: 6px 10px;
+}
+
+.antTableTight :global(.ant-table-tbody > tr > td) {
+  padding: 8px 10px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/* small helpers */
+.nowrap { white-space: nowrap; }
+.ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* action area */
+.actionRight { display:flex; justify-content:flex-end; width:100%; }
+
+/* overlay for global actions */
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 64px;
+  bottom: 0;
+  background: rgba(255,255,255,0.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index: 1200;
+}
+
+.centerPad { padding: 28px; display:flex; justify-content:center; align-items:center; }
+
+/* Row base */
+.rowBase { background: #fff; }
+
+/* Iframe Viewer Styles */
+.iframeOverlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9999999 !important;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.iframeContainer {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  height: 90vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+}
+
+.iframeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #f4f6ff;
+  border-bottom: 1px solid #e5e7f0;
+}
+
+.iframeTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2a2a2e;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 16px;
+}
+
+.closeButton {
+  background: #ff4757;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background: #ff3742;
+}
+
+.iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  flex: 1 !important;
+  position: relative !important;
+  z-index: 10000001 !important;
+}
+
+/* Overlay animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* minor responsive */
+@media (max-width: 900px) {
+  .rightFilters { flex-direction: column; align-items: flex-end; gap: 6px; }
+  .filterLabel { margin-right: 0; }
+}

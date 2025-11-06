@@ -1,0 +1,181 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  height: 75px;
+  padding: 0 16px;
+  background: transparent;
+  transition: left 0.2s ease;
+  display: flex;
+  align-items: flex-start; /* so .inner hugs the top */
+}
+
+/* White rounded card bar (like your screenshot) */
+.inner {
+  width: calc(100% + 40px); /* make it wider than the header */
+  background: #ffffff;
+  border-radius: 0 0 14px 14px; /* only bottom-left & bottom-right rounded */
+  box-shadow: 0 2px 18px rgba(23, 30, 74, 0.08);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 8px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iconButton {
+  width: 52px !important;
+  height: 52px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  color: #6a5ae0 !important;            /* purple icon */
+  background: transparent !important;
+  font-size: 22px !important;
+}
+
+.iconButton:hover {
+  background: #f4f3ff !important;
+  color: #5c52f3 !important;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  color: #5c52f3;                       /* purple text like screenshot */
+  user-select: none;
+}
+
+/* Right cluster */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Start From Last Point button */
+.resumeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid #e7e8ef;
+  background: #ffffff;
+  color: #5c52f3;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.resumeBtn:hover {
+  background: #f9f9ff;
+  border-color: #dedff5;
+}
+
+.resumeIconWrap {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  margin-right: 2px;
+}
+
+.chatIcon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.clockIcon {
+  position: absolute;
+  right: -4px;
+  bottom: -5px;
+  font-size: 14px;
+  line-height: 1;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 1px;
+  box-shadow: 0 0 0 1px #e3e5f3;
+}
+
+/* Bell button with badge */
+.bellBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  color: #6a5ae0;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.bellBtn:hover {
+  background: #f4f3ff;
+  color: #5c52f3;
+}
+
+/* Avatar button */
+.avatarBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.avatarCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #5c52f3;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0px;
+  padding: 0;
+  margin: 0;
+  line-height: 40px;
+  text-align: center;
+}
+
+/* Optional: menu styling */
+.dropdown :global(.ant-dropdown-menu) {
+  border-radius: 10px;
+}
+
+/* Small screens: keep spacing tidy */
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 8px 0 6px;
+    gap: 6px;
+  }
+  .resumeBtn {
+    display: none; /* hide long text on narrow screens */
+  }
+}

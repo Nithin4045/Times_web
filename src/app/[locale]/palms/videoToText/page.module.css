@@ -1,0 +1,65 @@
+/* page.module.css */
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 4%;
+}
+
+.uploadCard {
+  background-color: white;
+  width: 70%;
+  padding: 4%;
+  border-radius: 7px;
+}
+
+.uploadArea {
+  min-height: 260px;
+}
+
+.videoIcon {
+  font-size: 56px;
+  color: #3b82f6;
+}
+
+.uploadText {
+  font-size: 25px;
+  color: #4b5563;
+  padding: 1.6%;
+}
+
+.inputContainer {
+  padding-bottom: 3%;
+}
+
+.fileInput {
+  height: 40px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.uploadButton {
+  /* Inherits from contentaddbutton-Params-Upload class */
+  transition: all 0.2s ease;
+}
+
+.uploadButton:hover:not(.buttonDisabled) {
+  transform: scale(1.05);
+}
+
+.uploadButton:active:not(.buttonDisabled) {
+  transform: scale(0.98);
+}
+
+.buttonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.helperText {
+  color: #4b5563;
+  margin-top: 1rem;
+}

@@ -1,0 +1,349 @@
+.sider {
+  height: 100vh;
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  background: #ffffff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+
+  /* Smooth collapse/expand of the sider */
+  transition: width 0.25s ease-in-out, padding 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px 12px;
+}
+
+.brandCode {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #272160;
+  margin: 0;
+}
+
+/* Reserve space for account footer (~96px); adjust if you tweak .account */
+.nav {
+  padding: 8px 0 16px 0;
+  overflow-y: auto;
+  height: calc(100vh - 84px - 96px);
+  scrollbar-width: none;
+}
+
+.group {
+  margin: 4px 0;
+}
+
+.groupHeader {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.icon {
+  display: inline-flex;
+  min-width: 22px;
+  min-height: 22px;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupHeader:hover {
+  background: #f7f8fb;
+}
+
+.groupLabel {
+  flex: none;
+  margin-right: auto;
+}
+
+.chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #9aa1ac;
+  border-bottom: 2px solid #9aa1ac;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+  margin-right: 16px;
+}
+
+.chevronOpen {
+  transform: rotate(45deg);
+}
+
+/* ===== Smooth submenu animation ===== */
+.childList {
+  padding: 0 0 0 20px;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.25s ease-in-out, opacity 0.25s ease-in-out, padding 0.25s ease-in-out;
+}
+
+.group[data-open="true"] .childList {
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 4px;
+}
+
+.childItem {
+  list-style: none;
+  margin: 6px 0;
+  width: 100%;
+}
+
+.childLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #323843;
+  font-size: 14px;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.childLink:link,
+.childLink:visited {
+  color: inherit;
+}
+
+.childLink:not(.childLinkActive):hover,
+.childLink:not(.childLinkActive):focus-visible {
+  background: #f2f4ff;
+  color: #323843;
+}
+
+.childLinkActive,
+.childLinkActive:hover,
+.childLinkActive:focus,
+.childLinkActive:focus-visible {
+  background: #5c52f3;
+  color: #ffffff !important;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c2c8d2;
+  flex: 0 0 7px;
+}
+
+.dotActive {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #5c52f3;
+}
+
+.childLinkActive .dot {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #5c52f3;
+}
+
+.childText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* collapsed mode: hide labels/chevron; keep icons centered */
+.group[data-collapsed="true"] .groupLabel,
+.group[data-collapsed="true"] .chevron {
+  display: none;
+}
+
+.group[data-collapsed="true"] .groupHeader {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+/* ===== Tooltip flyout content ===== */
+.lightTooltip :global(.ant-tooltip-inner) {
+  background-color: #fff !important;
+  color: #323843 !important;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border-radius: 10px;
+  padding: 0;
+}
+
+.lightTooltip :global(.ant-tooltip-arrow) {
+  display: none;
+}
+
+.lightTooltip :global(.ant-tooltip-inner * ) {
+  opacity: 1 !important;
+}
+
+.lightTooltip :global(.ant-tooltip-content) {
+  padding: 0;
+}
+
+.flyout {
+  min-width: 220px;
+  max-width: 280px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.flyoutList {
+  margin: 0;
+  padding: 8px;
+}
+
+.flyoutItem {
+  list-style: none;
+  margin: 2px 0;
+  width: 100%;
+}
+
+.flyoutLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #323843;
+  font-size: 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flyoutLink:hover,
+.flyoutLink:focus-visible {
+  background: #f2f4ff;
+  color: #323843;
+}
+
+.flyoutDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c2c8d2;
+  flex: 0 0 6px;
+}
+
+.flyoutText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sectionLabel {
+  padding: 2px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+/* ===== Account footer ===== */
+.account {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border-top: 1px solid #e9ecf3;
+  padding-top: 12px;
+}
+
+.accountInner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #5c52f3;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  flex: 0 0 36px;
+}
+
+.accountText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* 👈 forces children (name + logout) to left */
+}
+
+.accountName {
+  font-weight: 600;
+  color: #222;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accountLogout {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;                 /* no extra padding */
+  margin: 2px 0 0;
+  font-size: 11px;            /* ↓ smaller text */
+  line-height: 1.1;
+  font-weight: 700;           /* slightly lighter than 800 */
+  letter-spacing: 0.2px;      /* tighter */
+  color: #4c57ff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+
+/* Collapsed: show avatar centered, tooltip handles name+logout */
+.account[data-collapsed="true"] {
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+  border-top: 1px solid #e9ecf3;
+}
+
+.account[data-collapsed="true"] .avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.sider {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+  overflow: hidden;
+  z-index: 1000; /* keep above page/footer */
+}

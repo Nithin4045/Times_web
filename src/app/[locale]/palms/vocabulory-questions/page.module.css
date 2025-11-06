@@ -1,0 +1,38 @@
+/* app/src/app/vocabulary/page.module.css */
+
+.loadingContainer {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.errorContainer {
+  padding: 2rem;
+}
+
+.paragraphContent {
+  line-height: 1.5;
+}
+
+.paragraphContent div {
+  margin-bottom: 4px;
+}
+
+/* Additional styles for better table appearance */
+.tableContainer {
+  margin-top: 1rem;
+}
+
+/* Custom styles for responsive behavior */
+@media (max-width: 768px) {
+  .loadingContainer,
+  .errorContainer {
+    padding: 1rem;
+  }
+  
+  .paragraphContent {
+    font-size: 14px;
+  }
+}

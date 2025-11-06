@@ -1,0 +1,14 @@
+.adminuserstable thead > tr > th {
+  background-color: #7700CC !important;
+  color: white!important;
+  /* border-radius: 0 !important; */
+}
+
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+  }
+

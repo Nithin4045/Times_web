@@ -1,0 +1,71 @@
+.container {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom:10px !important ;
+    margin-top: 1rem !important;
+    color: #000000;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .gridContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.flexEnd {
+    display: flex;
+    align-items: flex-end;
+}
+
+.overflowAuto {
+    overflow: auto;
+}
+
+.downloadButtonContainer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.downloadButton {
+    background-color: #1890ff;
+    color: white;
+}
+ .customtable{
+    color: white !important; 
+  }
+
+  .customtable thead > tr > th {
+    background-color: #556677 !important;
+    color: white!important;
+  }
+.secondheader{
+        font-size: large !important;
+    font-weight: 600 !important;
+    padding-top: 15px !important;
+
+}

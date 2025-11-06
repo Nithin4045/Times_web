@@ -1,0 +1,101 @@
+.card {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    min-height: 150px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:200px;
+    margin-left: 90px;
+    width:50%;
+    font-family: 'Poppins', sans-serif !important;
+     color: white;
+     background: linear-gradient(to bottom, #714AC0 0%, #7346CE 50%, #9A5CF7 100%)
+  }
+ 
+ .eventcard{
+   flex-direction: column;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width:80%; */
+    padding: 1%;  
+  }
+ 
+
+   
+  .CarouselTestheader{
+    color: #292828;
+    font-size: 20px;
+  }
+ 
+ 
+.Carouseltestcontent{
+    color: white;
+    text-align: center;
+}
+ 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+ 
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 
+.animateHeading {
+  animation: slideInLeft 2s ease-out forwards;
+}
+ 
+.animateParagraph {
+  animation: slideInUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+ 
+ 
+ 
+ .image-overlay {
+  position: relative;
+  /* no changes to sizing or margins */
+}
+ 
+.overlay-text {
+  position: absolute;
+  bottom: 16px;   /* adjust as needed */
+  left: 16px;     /* same here */
+  right: 16px;
+  background: rgba(0, 0, 0, 0.5);  /* makes text legible */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7); /* improves contrast */
+}
+ 
+.overlay-text h3,
+.overlay-text p {
+  margin: 0;
+}
+ 
+   
+ 

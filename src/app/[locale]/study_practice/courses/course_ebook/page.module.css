@@ -1,0 +1,289 @@
+/* Page wrapper: full width, left aligned */
+.page {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+/* Divider below breadcrumb */
+.topDivider {
+  height: 1px;
+  background: #9ca3af;      /* grey divider */
+  border-radius: 1px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* Full-width progress */
+.progressWrap { display: grid; gap: 6px; width: 100%; }
+.progressTrack {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #eef2e6;         /* soft track */
+  overflow: hidden;
+}
+.progressBar {
+  height: 100%;
+  background: #44c34c;         /* green bar */
+  border-radius: 999px 0 0 999px;
+  transition: width .25s ease;
+}
+.progressMeta {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+}
+.progressPct {
+  color: #3b82f6;              /* blue % like your mock */
+  font-weight: 700;
+}
+.progressCounts { color: #6b7280; }
+
+/* Full-width button row */
+.buttonRow {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;   /* keep button to the right edge */
+}
+.refBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;        /* ⬅️ reduced from 999px */
+  background: #fff;
+  padding: 0 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .18s ease;
+}
+.refBtn:hover {
+  border-color: #5b5ce2;
+  color: #5b5ce2;
+}
+.arrowIcon {
+  font-size: 14px;
+  color: #5b5ce2;
+}
+
+
+/* CONTENT LANE: 70% width from the left */
+.contentLane {
+  width: 70%;
+  min-width: 640px;            /* optional: keep a reasonable min width */
+  max-width: 1120px;           /* optional safety cap */
+}
+
+/* Accordions inside content lane */
+.accList { display: grid; gap: 12px; }
+.accCard  { background: transparent; }
+
+.accHead {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #e1e6ff;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02);
+  cursor: pointer;
+}
+.accHead:hover { border-color: #cfd7ff; }
+
+.headOpen {
+  border-bottom-left-radius: 0;   /* visually merges with body */
+  border-bottom-right-radius: 0;
+}
+
+.accTitle { font-weight: 800; color: #0f172a; }
+.chev     { font-size: 12px; color: #6b70d6; transition: transform .18s ease; }
+.rotate   { transform: rotate(180deg); }
+
+/* Blended body with header */
+.accBody {
+  margin-top: 0;
+  padding: 6px 8px;
+  background: #f2f4ff;
+  border: 1px solid #e1e6ff;
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* Rows */
+/* Existing row styles kept */
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background .18s ease, opacity .18s ease, transform .02s ease;
+}
+
+.row + .row { border-top: 1px solid #e3e6f8; }
+
+/* Make entire row clickable */
+.rowClickable { cursor: pointer; }
+.rowClickable:hover { background: #f9f9fb; }
+
+/* Disabled state when no link or while marking */
+.rowDisabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* Left side stays same */
+.left { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.pdfIcon { color: #e44d4d; font-size: 16px; }
+.rowText {
+  color: #0f172a;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Spinner inline with name */
+.inlineSpin { margin-left: 8px; vertical-align: middle; }
+
+/* Right side status icons unchanged */
+.right { display: inline-flex; align-items: center; justify-content: center; width: 22px; }
+.okIcon   { color: #22c55e; font-size: 16px; }
+.missIcon { color: #c3c7d3; font-size: 16px; }
+
+/* Per-area Load more */
+.areaLoadMore { text-align: right; padding: 8px 4px 2px; }
+.areaLoadMoreBtn {
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  padding: 4px 12px;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.areaLoadMoreBtn:hover { border-color: #5b5ce2; color: #5b5ce2; }
+
+/* Utils */
+.center { display: grid; place-items: center; min-height: 40vh; }
+.errorText { color: #b42318; }
+.emptyWrap { display: grid; place-items: center; padding: 48px 0; }
+
+/* Responsive tweak: if viewport is narrow, let lane expand to 100% */
+@media (max-width: 992px) {
+  .contentLane { width: 100%; min-width: 0; }
+}
+
+.rowLinkBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #0f172a;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+.rowLinkBtn:hover {
+  text-decoration: underline;
+}
+.inlineSpin {
+  margin-left: 4px;
+}
+.rowLinkBtn:disabled {
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Iframe viewer overlay */
+.iframeOverlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9999999 !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.iframeContainer {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  height: 90vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  z-index: 10000000 !important;
+}
+
+.iframeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #f4f6ff;
+  border-bottom: 1px solid #e5e7f0;
+}
+
+.iframeTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2a2a2e;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 16px;
+}
+
+.closeButton {
+  border: none;
+  background: #4d45b5;
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.closeButton:hover {
+  background: #3d35a0;
+}
+
+.iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  flex: 1 !important;
+  position: relative !important;
+  z-index: 10000001 !important;
+}

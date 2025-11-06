@@ -1,0 +1,40 @@
+:root {
+  --text: #0f172a;
+  --muted: #5b6470;
+  --accent: #5b5ce2;
+}
+
+/* Breadcrumb container */
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px; /* ⬆️ increased from ~13–14px */
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+/* Breadcrumb links */
+.breadLink {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 16px; /* ⬆️ */
+}
+
+.breadLink:hover {
+  text-decoration: underline;
+}
+
+/* Current breadcrumb item */
+.breadCurrent {
+  color: var(--text);
+  font-size: 16px; /* ⬆️ */
+}
+
+/* Separator (slash or arrow) */
+.sep {
+  color: var(--muted);
+  font-size: 16px; /* ⬆️ matches others */
+}

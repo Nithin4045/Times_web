@@ -1,0 +1,102 @@
+.card {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  align-items: stretch;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
+  /* remove large padding here, apply only inside .body */
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 120px;   /* ⬅️ increased card height */
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* text container */
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 14px;   /* ⬅️ increased padding for better proportion */
+}
+
+.texts {
+  margin-bottom: 8px;  /* increased spacing for better proportion */
+}
+
+.title {
+  font-size: 13px;     /* slightly smaller text */
+  font-weight: 700;
+  color: #1f2430;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.pricesRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mrpStriked {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.offerBlockVertical {
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* space between “For you” and price */
+}
+
+.forYou {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.offerPrice {
+  font-size: 15px;
+  font-weight: 800;
+  color: #16a34a;
+}
+
+.mrpOnly {
+  font-size: 15px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.tag {
+  margin-left: auto;
+  font-size: 12px;
+  color: #ef4444;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.clockIcon {
+  width: 14px;   /* slightly smaller clock */
+  height: 14px;
+}

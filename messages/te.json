@@ -1,0 +1,84 @@
+
+  {
+    "HomePage": {
+      "title": "పర్పుల్ తరగతి",
+       "learn": "నేర్చుకోండి",
+       "letsCode":"కోడ్ ప్రారంభిద్దాం",
+        "takeTest": "పరీక్ష రాయండి",
+      "Good_Morning" :  "శుభోదయం",
+       "Good_Afternoon" : "శుభ మధ్యాహ్నం",
+    "Good_Evening" : "శుభ సాయంత్రం",
+    "welcomeBackMessage":"మీరు తిరిగి రావడం ఆనందంగా ఉంది.",
+    "resumeLearningMessage":"మీ అభ్యాసాన్ని తిరిగి ప్రారంభించుకుందాం!",
+     "Class" : "తరగతి",
+     "Course":"కోర్స్",
+     "Course Content":"కోర్స్ కంటెంట్",
+     "User Courses":"వినియోగదారుల కోర్సులు",
+     "Users":"వినియోగదారులు",
+     "User Content":"వినియోగదారుల కంటెంట్",
+     "Dashboard":"డాష్‌బోర్డ్",
+     "comingSoon":"త్వరలో వస్తోంది",
+     "COURSE_TITLE":"",
+     "continue":"కొనసాగించు",
+     "Code Compiler" : "కోడ్ కంపైలర్",
+     "IDE":"ఐడీఈ",
+     "My Code Submissions":"నా కోడ్ సమర్పణలు",
+     "Lab Experiment Submissions":"ప్రయోగశాల ప్రయోగ సమర్పణలు",
+     "Assessment Code Submissions":"మూల్యాంకన కోడ్ సమర్పణలు",
+     "My Tests Submissions":"నా పరీక్ష సమర్పణలు",
+     "Assessment Tests Submissions":"మూల్యాంకన పరీక్ష సమర్పణలు",
+     "Manage Users":"వినియోగదారులను నిర్వహించండి",
+     "Add Tests":"పరీక్షలు జోడించండి",
+     "Add Questions":"ప్రశ్నలు జోడించండి",
+     "Preview Tests":"పరీక్షల పూర్వదర్శనం",
+     "Batchwise Analysis":"బ్యాచ్ ఆధారిత విశ్లేషణ",
+     "Batch Details":"బ్యాచ్ వివరాలు",
+     "Test Summary":"పరీక్ష సారాంశం",
+     "Test Analysis":"పరీక్ష విశ్లేషణ",
+     "Batchwise Summary":"బ్యాచ్ ఆధారిత సారాంశం",
+     "Test Overview":"పరీక్ష అవలోకనం",
+     "Lab Experiments":"ప్రయోగశాల ప్రయోగాలు",
+     "Assessment":"మూల్యాంకనం", 
+     "Evaluate" : "మూల్యాంకనం చేయండి",
+     "Results":"ఫలితాలు"
+    },
+    "LayoutPage":{
+      "learnEvolveTestCode": "నేర్చుకోండి, అభివృద్ధి చెందండి, పరీక్షించండి - కోడ్ ప్రారంభిద్దాం!"
+    
+    },
+    "EditPage":{
+     "edit": "సవరించండి",
+     "cancel":"రద్దు",
+     "submit":"సమర్పించండి",
+     "welcomeBack":"తిరిగి స్వాగతం",
+     "memberSince":"సభ్యుడు తేది నుండి",
+     "day":"రోజు/రోజులు",
+     "welcomeclock":"స్వాగతం! మేము మీతో ఉండడం చాలా ఆనందంగా ఉంది!",
+     "youveEarned":"మీరు సంపాదించారు",
+     "coin(s)":"నాణే(లు)",
+     "viewed":"చూశారు",
+     "minutes":"నిమిషం(లు)",
+     "youarea":"మీరు ఒక",
+     "earn":"సంపాదించండి",
+     "moreXPTobecome":"అవుట్ కావడానికి మరిన్ని XP",
+     "changePassword": "పాస్‌వర్డ్ మార్చండి",
+      "photo": "ఫోటో"
+  },
+  "TestDetails":{
+    "Available_Tests": "అందుబాటులో ఉన్న పరీక్షలు"
+  },
+  
+  "Messages": {
+    "CompletionHigh": "{percentage}% కోర్సు పూర్తయింది!! అద్భుతంగా కొనసాగండి!!",
+    "CompletionLow": "{percentage}% కోర్సు పూర్తయింది!! మీరు ఇంకా ఎక్కువ చేయవచ్చు!!",
+    "PointsLeft": "ఈ కోర్సును పూర్తి చేసి మీరు {points} పాయింట్లను పొందవచ్చు.",
+    "PointsCompleted": "కోర్సును విజయవంతంగా పూర్తి చేసినందుకు శుభాకాంక్షలు!!! మా సూచిత కోర్సులను చూడండి మరియు మరింత పొందండి!",
+    "ActivityMissed": "మేము మీను {days} రోజులుగా మిస్సయ్యాము!",
+    "ActivityPrompt": "మీ త్వరితమైన అధ్యయనానికి అభినందనలు.",
+    "ViewedDuration": "{minutes} నిమిషాలు వీక్షించారు",
+    "customParagraph":"వీడియోను చూడడానికి కోర్సును క్లిక్ చేయండి."
+  }
+  
+  
+}
+   

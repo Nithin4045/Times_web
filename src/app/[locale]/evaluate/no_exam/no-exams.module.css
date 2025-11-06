@@ -1,0 +1,15 @@
+/* no_exam/no-exams.css */
+
+.no-exams-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+.back-button {
+    margin-top: 20px;
+    background-color: #8356a9 ;
+    color: white;
+}

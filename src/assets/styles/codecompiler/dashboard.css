@@ -1,0 +1,19 @@
+.button {
+  color: #fff;
+  background: #8956a9 !important;
+  box-shadow: 0 2px 0 rgba(5, 145, 255, 0.1);
+  font-size: 14px;
+  line-height: 1.6;
+  height: 32px;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* div.g2-tooltip {
+  display: none !important;
+}
+
+div.g2-tooltip[style*="visibility: visible"] {
+  visibility: hidden !important;
+  display: none !important;
+} */

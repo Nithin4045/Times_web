@@ -1,0 +1,53 @@
+.wrap {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+  padding-left: 0;
+  padding-right: 0;
+  transition: margin-left 0.25s ease;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.breadLink {
+  color: #5b5ce2;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.breadLink:hover { text-decoration: underline; }
+
+.sep {
+  color: #9aa0a6;
+  font-size: 18px;
+}
+
+.breadCurrent {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.backBtn {
+  border-radius: 7px;
+  height: 36px;
+  padding: 4px 16px;
+}
+
+
+.body {
+  min-height: 0;
+}

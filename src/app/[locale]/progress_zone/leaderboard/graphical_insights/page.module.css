@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+.container {
+  font-family: 'Rubik', sans-serif;
+  background-color: #e6ebee;
+  min-height: calc(100vh - 80px);
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #414141;
+}
+
+.highlight {
+  color: #5a51e2;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6B7280;
+  font-weight: 500;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  text-decoration: none;
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.backIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.headerDivider {
+  border: none;
+  border-top: 1px solid #D1D5DB;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.chartCard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chartTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #414141;
+  margin-bottom: 20px;
+}
+
+.chartTitleLarge {
+  font-size: 22px;
+  font-weight: 700;
+  color: #414141;
+  margin-bottom: 20px;
+}
+
+.chartWrapper {
+  position: relative;
+  height: 300px;
+}
+
+.fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerTop {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .chartTitle,
+  .chartTitleLarge {
+    font-size: 18px;
+  }
+  
+  .chartWrapper {
+    height: 250px;
+  }
+}

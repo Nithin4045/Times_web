@@ -1,0 +1,5 @@
+/* Custom styles for sorting icons in the Ant Design Table */
+.ant-table-column-sorter {
+    color: white !important;
+    margin-left: 1.5vw !important; /* Ensure the icons are white */
+  }

@@ -1,0 +1,152 @@
+/* .container {
+  padding: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.courseCard {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+.table :global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+}
+.titleCell {
+  padding: 12px 8px;
+}
+.centerCell {
+  text-align: center;
+}
+.topicsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.topicRow {
+  display: grid;
+  grid-template-columns: 1fr 90px 90px 40px;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.topicName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.topicType {
+  color: #666;
+  font-size: 13px;
+}
+.typeTag {
+  text-transform: capitalize;
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+.topicOrder {
+  color: #666;
+  font-size: 13px;
+  text-align: left;
+}
+.topicAction {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .topicRow {
+    grid-template-columns: 1fr 70px 70px 36px;
+  }
+} */
+
+
+
+
+
+.container {
+  padding: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.courseCard {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+.table :global(.ant-table-thead > tr > th) {
+  background: #fafafa;
+}
+.titleCell {
+  padding: 12px 8px;
+}
+.centerCell {
+  text-align: center;
+}
+.topicsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.topicRow {
+  display: grid;
+  grid-template-columns: 1fr 90px 90px 72px;
+  gap: 12px;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.topicName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.topicType {
+  color: #666;
+  font-size: 13px;
+}
+.typeTag {
+  text-transform: capitalize;
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+.topicOrder {
+  color: #666;
+  font-size: 13px;
+  text-align: left;
+}
+.topicAction {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.nameTooltip .ant-tooltip-inner,
+.tooltipCard {
+  background: white;
+  color: #111;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 900px) {
+  .topicRow {
+    grid-template-columns: 1fr 70px 70px 72px;
+  }
+}

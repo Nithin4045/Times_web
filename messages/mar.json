@@ -1,0 +1,22 @@
+{
+    "HomePage": {
+      "Class" : "Class",
+      "Code Compiler" : "Code Compiler",
+      "Evaluate" : "Evaluate"
+    },
+    "LayoutPage":{
+      "learnEvolveTestCode": "Learn, Evolve and Test - LET'S CODE!"
+  
+    },
+    "EditPage":{
+       "edit": "EDIT PROFILE",
+       "changePassword": "CHANGE PASSWORD",
+       "photo": "PHOTO"
+    },
+  
+    "TestDetails": {
+      "Available_Tests":"Available Tests"
+    }
+  
+  
+  }

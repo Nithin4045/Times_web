@@ -1,0 +1,1030 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id                       Int          @id @default(autoincrement())
+  id_card_no               String?      @unique
+  email                    String?
+  mobile                   String?
+  photo                    String?
+  firstname                String
+  lastname                 String
+  role                     String       @default("STU")
+  address                  String?
+  created_datetime         DateTime     @default(now())
+  fcm_token                String?
+  login_status             Boolean      @default(false)
+  last_login_datetime      DateTime?
+  modules                  String?      @default("10")
+  prompt_settings          Json?
+  first_time_login         Boolean      @default(true)
+  sex                      String?
+  created_at               DateTime     @default(now())
+  updated_at               DateTime     @default(now())
+  completed_magazines      Int[]        @default([])
+  last_location            String?
+  selected_course_id       Int?
+  last_activity_updated_at DateTime?
+  last_read_material_id    Int?
+  last_read_material_path  String?
+  last_read_material_title String?
+  last_read_material_type  String?
+  last_seen_video_id       Int?
+  last_seen_video_path     String?
+  last_seen_video_title    String?
+  last_taken_test_id       Int?
+  last_taken_test_path     String?
+  last_taken_test_title    String?
+  attendance               attendance[]
+  selected_course          courses?     @relation("UsersSelectedCourse", fields: [selected_course_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([selected_course_id], map: "idx_users_selected_course_id")
+}
+
+model course_categories {
+  id         Int      @id @default(autoincrement())
+  category   String   @unique
+  created_at DateTime @default(now())
+  created_by Int?
+  updated_by Int?
+  updated_at DateTime @default(now())
+  
+  // Course Recommendations
+  recommendations_as_source course_recommendations[] @relation("RecSourceCategory")
+}
+
+model courses {
+  id                Int        @id @default(autoincrement())
+  price             Float?
+  image             String?
+  coursename        String
+  offerendtime      DateTime?
+  offerprice        Float?
+  type              coursetype @default(paid)
+  active            Boolean    @default(true)
+  offerpercent      Float?
+  course_category   Int?
+  offerstarttime    DateTime?
+  variant_id        Int?
+  created_at        DateTime   @default(now())
+  updated_at        DateTime?  @default(now())
+  selected_by_users users[]    @relation("UsersSelectedCourse")
+  batches           batches[]  @relation("BatchCourse")
+  variants          variants?  @relation(fields: [variant_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  
+  // Course Recommendations & Upgrades
+  recommendations_as_source      course_recommendations[] @relation("RecSourceCourse")
+  recommendations_as_target      course_recommendations[] @relation("RecRecommendedCourse")
+  upgrades_as_from               course_upgrades[]        @relation("UpgradeFromCourse")
+  upgrades_as_to                 course_upgrades[]        @relation("UpgradeToCourse")
+
+  @@unique([coursename, course_category, variant_id], map: "courses_coursename_category_variant_key")
+  @@unique([coursename, course_category, variant_id])
+  @@index([type])
+}
+
+model replicated_questions {
+  id            Int       @id @default(autoincrement())
+  paper_id      String
+  question_id   String
+  question      String
+  options       String
+  correct_ans   String
+  deleted       Int       @default(0)
+  applied_edits String?
+  solution      String?
+  prompt        String?
+  user_id       Int?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime?
+  parent_id     Int?
+  job_id        Int
+}
+
+model translated_questions {
+  id           Int       @id @default(autoincrement())
+  paper_id     String
+  question_id  String
+  translations String
+  deleted      Int       @default(0)
+  local_words  String?
+  user_id      Int?
+  created_at   DateTime  @default(now())
+  updated_at   DateTime?
+  global_words String?
+  job_id       Int
+}
+
+model tagging_questions {
+  id          Int       @id @default(autoincrement())
+  paper_id    String
+  question_id String
+  job_id      Int
+  deleted     Int       @default(0)
+  area        String?
+  sub_area    String?
+  topic       String?
+  sub_topic   String?
+  user_id     Int?
+  created_at  DateTime  @default(now())
+  updated_at  DateTime?
+}
+
+model tagging_data {
+  id         Int       @id @default(autoincrement())
+  deleted    Int       @default(0)
+  area       String?
+  sub_area   String?
+  topic      String?
+  sub_topic  String?
+  description String?
+  user_id    Int?
+  created_at DateTime  @default(now())
+  updated_at DateTime?
+}
+
+model translation_words {
+  id         Int      @id @default(autoincrement())
+  words      String?
+  context    String?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  deleted    Int      @default(0)
+}
+
+model tagged_questions {
+  id          Int       @id @default(autoincrement())
+  paper_id    String
+  question_id String
+  deleted     Int       @default(0)
+  area        String?
+  sub_area    String?
+  topic       String?
+  sub_topic   String?
+  user_id     Int?
+  created_at  DateTime  @default(now())
+  updated_at  DateTime?
+  job_id      Int
+}
+
+model generate_jobs {
+  id            Int       @id @default(autoincrement())
+  fileName      String
+  user_id       Int
+  input_type    String
+  request_data  String?
+  response_data String?
+  response_time DateTime?
+  status        String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime?
+  api_endpoint  String?
+  percentage    Int       @default(0)
+  filePath      String?
+}
+
+model Session {
+  id               Int      @id @default(autoincrement())
+  userId           Int
+  accessToken      String
+  refreshToken     String
+  expiryDate       DateTime
+  status           Int?
+  latestAccessTime DateTime
+}
+
+model sidenav {
+  id        Int     @id @default(autoincrement())
+  name      String
+  url       String?
+  images    String?
+  icon_name String?
+  sub_name  Json?
+}
+
+model Settings {
+  SETTING_ID    Int     @id @default(autoincrement())
+  SUB_DOMAIN    String
+  SETTINGS_JSON String?
+}
+
+model users_courses {
+  id                        Int       @id @default(autoincrement())
+  id_card_no                String
+  payment                   String?   @unique
+  registration_date         DateTime?
+  validity_date             DateTime?
+  batch_id                  Int?
+  completed_topics          Int[]     @default([])
+  completed_materials       Int[]     @default([])
+  completed_live_sessions   Int[]     @default([])
+  completed_study_resources Int[]     @default([])
+  created_at                DateTime  @default(now())
+  updated_at                DateTime  @default(now())
+  completed_videolectures   Int[]     @default([])
+  completed_schedules       Int[]     @default([])
+  batches                   batches?  @relation(fields: [batch_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([batch_id])
+}
+
+model otp_tokens {
+  id         BigInt   @id @default(autoincrement())
+  mobile     String
+  otp        String
+  created_at DateTime @default(now())
+  expires_at DateTime
+  is_used    Boolean  @default(false)
+
+  @@unique([mobile, is_used], map: "u_mobile_channel_active")
+  @@index([mobile])
+  @@index([expires_at])
+}
+
+model dynamic_content {
+  id          String    @id @default(cuid())
+  placement   String
+  template    String
+  role        String?
+  contentjson Json
+  createdat   DateTime  @default(now())
+  endat       DateTime?
+  isactive    Boolean   @default(true)
+  repeatrule  String
+  startat     DateTime?
+  updatedat   DateTime  @default(now())
+}
+
+model course_topics {
+  id            Int        @id @default(autoincrement())
+  topic_name    String     @unique(map: "ux_course_topics_topic_name")
+  order         Int
+  duration_days Int        @default(0)
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @default(now())
+  percentage    Int?
+  type          coursetype @default(paid)
+
+  @@index([order])
+}
+
+model course_chapters {
+  id              Int      @id @default(autoincrement())
+  course_topic_id Int[]    @default([])
+  order           Int      @default(0)
+  title           String
+  description     String?
+  isactive        Boolean  @default(true)
+  created_at      DateTime @default(now())
+  updated_at      DateTime @default(now())
+  course_id       Int[]    @default([])
+  catergory_id    Int[]    @default([])
+}
+
+model course_topics_details {
+  id              Int      @id @default(autoincrement())
+  duration_days   Int      @default(0)
+  created_at      DateTime @default(now())
+  updated_at      DateTime @default(now())
+  course_topic_id Int
+  topic_order     Int?
+
+  @@index([course_topic_id])
+}
+
+model course_schedule {
+  id              Int          @id @default(autoincrement())
+  material_code   String?
+  live_url        String?
+  video           String?
+  course_topic_id Int          @default(0)
+  end_date_time   DateTime?
+  start_date_time DateTime?
+  batch_id        Int?
+  created_at      DateTime     @default(now())
+  updated_at      DateTime     @default(now())
+  faculty_code    String?
+  faculty_name    String?
+  venue           String?
+  attendance      attendance[]
+
+  @@index([material_code])
+  @@index([course_topic_id])
+}
+
+model city {
+  id         Int        @id @default(autoincrement())
+  city       String
+  phone      String?    @unique
+  email      String?    @unique
+  updated_by Int?
+  created_at DateTime   @default(now())
+  updated_at DateTime   @default(now())
+  name       String?
+  batches    batches[]
+
+  @@index([city])
+}
+
+model centers {
+  id         Int        @id @default(autoincrement())
+  address    String
+  phone      String
+  email      String
+  gpslink    String
+  updated_by Int?
+  created_at DateTime   @default(now())
+  updated_at DateTime   @default(now())
+  center     String
+  city_id    Int
+  name       String?
+  batches    batches[]
+
+  @@unique([city_id, center], map: "centers_city_center_key")
+}
+
+model variants {
+  id          Int        @id @default(autoincrement())
+  variant     String     @unique
+  description String?
+  created_at  DateTime   @default(now())
+  updated_at  DateTime   @default(now())
+  courses     courses[]
+  
+  // Course Recommendations & Upgrades
+  recommendations_as_source course_recommendations[] @relation("RecSourceVariant")
+  upgrades_as_from          course_upgrades[]        @relation("UpgradeFromVariant")
+  upgrades_as_to            course_upgrades[]        @relation("UpgradeToVariant")
+
+  @@index([variant])
+}
+
+model form_jsons {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String?
+  formjson    Json
+  isactive    Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+
+  @@index([name])
+}
+
+model test_types {
+  id         Int      @id @default(autoincrement())
+  test_name  String   @unique
+  created_at DateTime @default(now())
+  created_by Int?
+  updated_by Int?
+  updated_at DateTime @default(now())
+  order      Int?
+}
+
+model tests_area_level {
+  id           Int      @id @default(autoincrement())
+  area         String
+  level        String
+  batch_id     Int[]    @default([])
+  center_id    Int[]    @default([])
+  city_id      Int[]    @default([])
+  id_card_nos  String[] @default([])
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
+  course_id    Int[]    @default([])
+  test_type_id Int[]    @default([])
+}
+
+model tests {
+  id                  Int       @id @default(autoincrement())
+  description         String?
+  name                String?
+  created_at          DateTime  @default(now())
+  updated_at          DateTime  @default(now())
+  solution            String?
+  test_ref            String?
+  type                String    @default("EXTERNAL")
+  test_link           String?
+  course_id           Int[]     @default([])
+  end_date            DateTime?
+  start_date          DateTime?
+  tests_area_level_id Int?
+}
+
+model magazines {
+  id             Int               @id @default(autoincrement())
+  magazine_id    String            @unique
+  title          String
+  year           Int
+  type           String
+  nav_link       String?
+  created_at     DateTime?
+  updated_at     DateTime          @default(now())
+  price_one_year Json?
+  price_two_year Json?
+  orders         magazine_orders[] @relation("Magazine_Orders")
+}
+
+model magazine_orders {
+  id           Int       @id @default(autoincrement())
+  userId       Int
+  magazineId   Int
+  subscription String
+  status       String
+  orderDate    DateTime  @default(now())
+  navLink      String
+  description  String?
+  magazine     magazines @relation("Magazine_Orders", fields: [magazineId], references: [id])
+
+  @@index([userId])
+  @@index([magazineId])
+}
+
+model test_attempts {
+  id            Int           @id @default(autoincrement())
+  status        AttemptStatus @default(STARTED)
+  id_card_no    String?
+  started_at    DateTime      @default(now())
+  submitted_at  DateTime?
+  viewed_report Boolean?      @default(false)
+  test_id       Int?
+  created_at    DateTime      @default(now())
+  answers       String?
+
+  @@unique([id_card_no, test_id])
+  @@index([id_card_no, test_id, status])
+}
+
+model pages_json {
+  id           Int      @id @default(autoincrement())
+  placement    String
+  content_json Json
+  created_at   DateTime @default(now())
+  updated_at   DateTime @default(now())
+  created_by   Int?
+}
+
+model batches {
+  id                Int              @id @default(autoincrement())
+  batch_code        String           @unique
+  batch_description String?
+  status            Boolean          @default(true)
+  merged_batch      Int?
+  center_id         Int?
+  city_id           Int?
+  course_id         Int?
+  start_date        DateTime?
+  validity_date     DateTime?
+  users_courses     users_courses[]
+  city              city?            @relation(fields: [city_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  centers           centers?         @relation(fields: [center_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  courses           courses?         @relation("BatchCourse", fields: [course_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  created_at        DateTime         @default(now())
+  updated_at        DateTime         @default(now())
+
+  @@unique([center_id, batch_code])
+  @@index([center_id])
+  @@index([city_id])
+}
+
+model location_mappings {
+  id          Int      @id @default(autoincrement())
+  city_id     Int
+  center_id   Int
+  variant_id  Int
+  category_id Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @default(now())
+  course_id   Int
+
+  @@unique([category_id, course_id, city_id, center_id, variant_id], map: "unique_location_mapping")
+  @@index([category_id])
+  @@index([course_id])
+  @@index([city_id])
+  @@index([center_id])
+  @@index([variant_id])
+}
+
+model course_materials {
+  id            Int          @id @default(autoincrement())
+  area          String
+  material_path String
+  key_path      String?
+  solution_path String?
+  order         Int?
+  type          MaterialType @default(ebook)
+  created_at    DateTime     @default(now())
+  updated_at    DateTime     @default(now())
+  topic_name    String?
+  course_id     Int[]        @default([])
+
+  @@index([course_id])
+}
+
+model live_sessions {
+  id              Int       @id @default(autoincrement())
+  start_date_time DateTime?
+  end_date_time   DateTime?
+  session_link    String
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @default(now())
+  description     String?
+  name            String?
+  city_id         Int[]     @default([])
+  batch_id        Int[]     @default([])
+  course_id       Int[]     @default([])
+  center_id       Int[]     @default([])
+
+  @@index([batch_id])
+}
+
+model study_resources {
+  id                Int      @id @default(autoincrement())
+  category          String?
+  title             String
+  link_url          String?
+  content           String?
+  created_at        DateTime @default(now())
+  updated_at        DateTime @default(now())
+  page_id           String?
+  type              String
+  course_id         Int[]    @default([])
+  city_id           Int[]    @default([])
+  category_id       Int[]    @default([])
+  accordion_content String?
+
+  @@index([type, category])
+  @@index([course_id, type])
+}
+
+model notifications {
+  id         BigInt               @id @default(autoincrement())
+  role       String?
+  title      String
+  body       String
+  category   NotificationCategory @default(GENERAL)
+  variant    NotificationVariant  @default(INFO)
+  cta_label  String?
+  cta_url    String?
+  starts_at  DateTime?
+  expires_at DateTime?
+  priority   Int                  @default(0)
+  source     String?
+  tags       String[]
+  metadata   Json?
+  created_at DateTime             @default(now())
+  updated_at DateTime             @default(now())
+  is_seen    Boolean              @default(false)
+  id_card_no String?
+
+  latest_update Boolean             @default(false)
+}
+
+model notification_styles {
+  id         Int                  @id @default(autoincrement())
+  category   NotificationCategory
+  variant    NotificationVariant
+  color      String
+  created_at DateTime             @default(now())
+}
+
+model materials {
+  id            Int             @id @default(autoincrement())
+  title         String
+  description   String?
+  storage       MaterialStorage @default(URL)
+  url           String?
+  path          String?
+  size_bytes    Int?
+  created_by    Int?
+  updated_by    Int?
+  created_at    DateTime        @default(now())
+  updated_at    DateTime        @default(now())
+  isactive      Boolean         @default(true)
+  duration      Int?
+  ref           String?         @unique
+  material_type materials_type?
+
+  @@index([title])
+}
+
+model videolectures {
+  id          Int     @unique @default(autoincrement())
+  area        String?
+  category_id Int[]
+  center_id   Int[]
+  city_id     Int[]
+  course_id   Int[]
+  topic       String?
+  variant_id  Int[]
+  video_ids   Int[]
+}
+
+model nav_contents {
+  id            Int            @id @default(autoincrement())
+  type          NavContentType
+  label         String
+  is_navigation Boolean        @default(false)
+  storage       LinkStorage?
+  url           String?
+  path          String?
+  id_card_nos   String[]       @default([])
+  isactive      Boolean        @default(true)
+  created_by    Int?
+  updated_by    Int?
+  created_at    DateTime       @default(now())
+  updated_at    DateTime?      @default(now())
+  center_id     Int[]          @default([])
+  city_id       Int[]          @default([])
+  course_id     Int[]          @default([])
+  batch_id      Int[]          @default([])
+  icon_name     String?
+  test_type_id  Int?
+
+  @@index([type])
+  @@index([is_navigation])
+  @@index([isactive])
+}
+
+model nav_accordion_rows {
+  id                  Int          @id @default(autoincrement())
+  accordion_id        Int
+  text                String
+  storage             LinkStorage?
+  url                 String?
+  path                String?
+  sort_order          Int?         @default(0)
+  isactive            Boolean      @default(true)
+  created_by          Int?
+  updated_by          Int?
+  created_at          DateTime     @default(now())
+  updated_at          DateTime?    @default(now())
+  batch_id            Int[]        @default([])
+  center_id           Int[]        @default([])
+  city_id             Int[]        @default([])
+  course_id           Int[]        @default([])
+  id_card_nos         String[]     @default([])
+  study_resource_name String?
+}
+
+model webinar_videos {
+  id             Int      @id @default(autoincrement())
+  subject        String
+  topic_name     String?
+  topic_datetime DateTime?
+  video_link     String?
+  course_ids     Int[]    @default([])
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+
+  @@index([topic_datetime])
+}
+
+model attendance {
+  id                 Int              @id @default(autoincrement())
+  user_id            Int
+  course_schedule_id Int?
+  attendance_date    DateTime         @default(dbgenerated("CURRENT_DATE")) @db.Date
+  status             String           @default("present")
+  notes              String?
+  created_at         DateTime         @default(now())
+  updated_at         DateTime         @default(now())
+  course_schedule    course_schedule? @relation(fields: [course_schedule_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users              users            @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([user_id, course_schedule_id, attendance_date], map: "attendance_user_schedule_date_key")
+}
+
+model user_test_details {
+  record_id           Int       @id @default(autoincrement())
+  test_id             Int?
+  subject_id          Int?
+  user_test_id        Int?
+  question_data       String?
+  answer_data         String?
+  created_date        DateTime? @db.Timestamp(6)
+  modified_date       DateTime? @db.Timestamp(6)
+  marks               Decimal?  @db.Decimal(10, 2)
+  timer_value         String?   @db.VarChar(10)
+  video_path          String?
+  review_status       Int?
+  modified_by         String?   @db.VarChar(255)
+  final_score         String?   @db.VarChar(50)
+  relevence           Int?
+  logical_consistency Int?
+  grammar_spelling    Int?
+  user_id             Int?
+}
+
+model test_repository {
+  test_id                   Int       @id @default(autoincrement())
+  test_type                 String?   @db.VarChar(10)
+  test_description          String?   @db.VarChar(200)
+  validity_start            DateTime?
+  validity_end              DateTime?
+  created_date              DateTime?
+  created_by                Int?
+  is_recurring              Int?
+  question_selection_method String?   @db.VarChar(20)
+  status                    Int?
+  test_code                 String?   @db.VarChar(20)
+  test_title                String?   @db.VarChar(100)
+  test_icon                 String?   @db.VarChar(100)
+  language                  String?   @db.VarChar(30)
+  general_data              String?
+  role                      Int?
+  master_data               String?
+  epi_question              String?
+  video                     Int?
+  college_code              String?   @db.VarChar(100)
+  college_name              String?   @db.VarChar(500)
+  module                    Int?
+  link_test                 Int?
+  ip_restriction            Int?
+  ip_addresses              String?
+}
+
+model user_tests {
+  user_test_id   Int       @id @default(autoincrement())
+  test_id        Int
+  validity_start DateTime?
+  validity_end   DateTime?
+  created_date   DateTime?
+  created_by     Int?
+  user_name      String?   @db.VarChar(100)
+  access         String?   @db.VarChar(100)
+  test_name      String?   @db.VarChar(100)
+  user_data      String?
+  epi_data       String?
+  distcount      Int?
+  distsecs       Int?
+  video          String?
+  user_id        Int?
+  batch_code     String?   @db.VarChar(100)
+  module         String?   @db.VarChar(100)
+  login_window   DateTime?
+}
+
+model topics {
+  topic_id          Int     @id @default(autoincrement())
+  topic_description String? @db.VarChar(255)
+  topic_code        String? @unique @db.VarChar(255)
+  require_resource  Int?
+  test_type         String? @db.VarChar(50)
+}
+
+model eval_questions {
+  question_id            Int       @id @default(autoincrement())
+  subject_id             Int?
+  topic_id               Int?
+  question_number        String?   @db.VarChar(50)
+  choice1                String?   @db.VarChar(255)
+  choice2                String?   @db.VarChar(255)
+  choice3                String?   @db.VarChar(255)
+  choice4                String?   @db.VarChar(255)
+  answer                 String?   @db.VarChar(10)
+  complexity             Int?
+  question_source        String?   @db.VarChar(255)
+  link                   String?   @db.VarChar(255)
+  created_date           DateTime? @db.Date
+  created_by             Int?
+  modified_date          DateTime? @db.Date
+  modified_by            Int?
+  question_type          String?   @db.VarChar(50)
+  parent_question_number String?   @db.VarChar(50)
+  question               String?
+  help_text              String?
+  help_files             String?   @db.VarChar(255)
+  options                String?
+  negative_marks         Decimal?  @db.Decimal(5, 2)
+  status                 Int?
+}
+
+model test_repository_details {
+  repository_details_id Int     @id
+  test_id               Int?
+  subject_id            Int?
+  question_count        Int?
+  duration_min          Int?
+  rendering_order       Int?
+  selection_method      String? @db.VarChar(50)
+  topic_id              Int?
+  require_resource      Int?
+  complexity            Int?
+  subject_marks         Int?
+  negative_marks        Int?
+}
+
+model test_pattern {
+  pattern_id       Int     @id
+  test_id          Int?
+  subject_id       String? @db.VarChar(50)
+  question_count   Int?
+  duration_min     Int?
+  difficulty_level Int?
+  status           Int?
+  max_marks        Int?
+}
+
+model question_resources {
+  resource_id    Int     @id @default(autoincrement())
+  resource_type  String? @db.VarChar(50)
+  resource       String?
+  resource_files String? @db.VarChar(255)
+  subject_id     Int?
+  resource_code  String? @db.VarChar(50)
+  topic_id       String? @db.VarChar(10)
+  complexity     String? @db.VarChar(50)
+}
+
+model subjects {
+  subject_id          Int     @id @default(autoincrement())
+  subject_description String? @db.VarChar(255)
+  subject_code        String? @db.VarChar(50)
+  require_resource    Int?
+  test_type           String? @db.VarChar(50)
+}
+
+model language {
+  id       Int    @id @default(autoincrement())
+  language String @unique @db.VarChar(255)
+}
+
+model trasnslation_words {
+  id         Int       @id @default(autoincrement())
+  words      String?
+  user_id    Int
+  created_at DateTime  @default(now())
+  updated_at DateTime?
+  context    String?
+}
+
+enum testtype {
+  EXTERNAL
+  INTERNAL
+}
+
+enum LogLevel {
+  TRACE
+  DEBUG
+  INFO
+  WARN
+  ERROR
+  FATAL
+}
+
+enum LogCategory {
+  AUTH
+  USER_ACTION
+  API
+  SYSTEM
+  DB
+  JOB
+  SECURITY
+  OTHER
+}
+
+enum LogOutcome {
+  SUCCESS
+  FAILURE
+  DENY
+  ERROR
+  TIMEOUT
+}
+
+enum OtpChannel {
+  SMS
+  WHATSAPP
+}
+
+enum AttemptStatus {
+  STARTED
+  SUBMITTED
+  GRADED
+}
+
+enum coursetype {
+  paid
+  free
+}
+
+enum MaterialType {
+  reference_practice_material
+  ebook
+}
+
+enum NotificationCategory {
+  GENERAL
+  ACCOUNT
+  SHP
+  ALERTS
+  ARCHIVES
+  ARTICLES
+  EVENTS
+  NEWS
+  NOTIFICATIONS
+  RESULTS
+  OTHER
+}
+
+enum NotificationVariant {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
+}
+
+enum Material_Type {
+  pdf
+  image
+}
+
+enum MaterialStorage {
+  URL
+  PATH
+}
+
+enum materials_type {
+  VIDEO
+  PDF
+  IMAGE
+}
+
+enum NavContentType {
+  general_info
+  tests
+  buttons
+  accordion
+}
+
+enum LinkStorage {
+  URL
+  PATH
+}
+
+model course_recommendations {
+  id                     Int      @id @default(autoincrement())
+  source_course_id       Int?
+  source_category_id     Int?
+  source_variant_id      Int?
+  recommended_course_id  Int
+  created_at             DateTime @default(now())
+  
+  // Relations
+  source_course          courses?           @relation("RecSourceCourse", fields: [source_course_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  source_category        course_categories? @relation("RecSourceCategory", fields: [source_category_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  source_variant         variants?          @relation("RecSourceVariant", fields: [source_variant_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  recommended_course     courses            @relation("RecRecommendedCourse", fields: [recommended_course_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  
+  @@index([source_course_id])
+  @@index([source_category_id])
+  @@index([source_variant_id])
+  @@index([recommended_course_id])
+}
+
+model course_upgrades {
+  id              Int      @id @default(autoincrement())
+  from_course_id  Int
+  from_variant_id Int?
+  to_course_id    Int
+  to_variant_id   Int?
+  created_at      DateTime @default(now())
+  
+  // Relations
+  from_course     courses   @relation("UpgradeFromCourse", fields: [from_course_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  from_variant    variants? @relation("UpgradeFromVariant", fields: [from_variant_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  to_course       courses   @relation("UpgradeToCourse", fields: [to_course_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  to_variant      variants? @relation("UpgradeToVariant", fields: [to_variant_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  
+  @@index([from_course_id])
+  @@index([from_variant_id])
+  @@index([to_course_id])
+  @@index([to_variant_id])
+}
+
+model referral {
+  id_card_no          String       
+  id               Int             @id @default(autoincrement())
+  name           String 
+  contact        String
+  email          String            @unique
+  referredCourse String
+  status         String               @default("referred")  
+  createdAt      DateTime          @default(now())
+}
+
+model original_courses {
+  id            Int     @id @default(autoincrement())
+  course_id     Int
+  original_name String
+
+  @@map("original_courses") // ensures table name in PostgreSQL is original_courses
+}

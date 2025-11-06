@@ -1,0 +1,177 @@
+.popupWrap {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: transparent;
+}
+
+/* Card container - narrower to match screenshot */
+.popupCard {
+  width: 300px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(20, 20, 20, 0.08);
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px; /* slightly reduced vertical padding */
+  border-bottom: 1px solid #f3f3f3;
+}
+.title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #111827;
+  margin: 0;         /* remove default margin */
+  line-height: 1.2;  /* compact */
+}
+.clearAll {
+  background: transparent;
+  border: none;
+  color: #6b46c1;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px;
+}
+.clearAll:hover { text-decoration: underline; }
+
+/* Body */
+.body {
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 6px 8px; /* reduced vertical padding */
+}
+.center, .centerError {
+  padding: 10px;
+  text-align: center;
+  color: #666;
+}
+
+/* Each group (we render items directly) */
+.group {
+  display: block;
+}
+
+/* Notification card */
+.card {
+  padding: 6px 6px; /* tightened */
+  cursor: pointer;
+  background: #fff;
+}
+.card:hover {
+  background: #fbfbff;
+}
+
+/* Top row - dot + title inline */
+.rowTop {
+  display: flex;
+  align-items: center;
+  gap: 6px;       /* tight gap between dot and title */
+  margin: 0;      /* remove extra margin */
+  padding: 0;     /* ensure no padding */
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: 0 0 12px;
+}
+.dotGreen {
+  background: #10b981;
+  box-shadow: 0 0 0 6px rgba(16,185,129,0.06);
+}
+.dotGray {
+  background: #9ca3af;
+}
+
+/* Title */
+.titleWrap { flex: 1; }
+.cardTitle {
+  font-weight: 600;
+  font-size: 13px;
+  color: #111827;
+  line-height: 1.12; /* tighter */
+  margin: 0;         /* remove default margin */
+  padding: 0;
+}
+
+/* Body text under title */
+.cardBody {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.2; /* slightly tighter */
+  max-height: 3.6em;
+  overflow: hidden;
+  margin: 4px 0 6px 20px; /* reduced top/bottom spacing, keep left indent for dot alignment */
+  padding: 0;
+}
+
+/* Meta row (time | weekday) — tightened vertical space */
+.metaRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 20px; /* align with body */
+  margin-top: 0;     /* remove top gap */
+  margin-bottom: 2px; /* small gap below meta */
+  line-height: 1;
+}
+.timeText {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+.metaSeparator {
+  color: #d1d5db;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+/* your component uses weekdayText in the JSX — style it compactly */
+.weekdayText {
+  font-size: 12px;
+  color: #6b7280;   /* neutral text color */
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.weekdayLink:hover,
+.weekdayText:hover { text-decoration: underline; }
+
+/* subtle divider between items */
+.divider {
+  height: 1px;
+  background: #f3f4f6;
+  margin-top: 8px; /* slightly smaller */
+}
+
+/* Footer */
+.footer {
+  padding: 10px; /* balanced spacing */
+  border-top: 1px solid #f3f3f3;
+  display: flex;
+  justify-content: center;
+}
+.viewAll {
+  background: transparent;
+  border: none;
+  color: #6b46c1;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  padding: 6px 8px;
+}
+.arrow {
+  font-size: 14px;
+  color: #6b46c1;
+}

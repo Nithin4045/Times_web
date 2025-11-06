@@ -1,0 +1,67 @@
+/* layout.module.css */
+
+/* Header styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3f51b5 !important;
+  padding-left: 25px !important;
+}
+
+/* Logo styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Portal Title */
+.portalTitle {
+  flex-grow: 1;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Menu styles */
+.headerMenu {
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+/* Main Content styles */
+.content {
+  padding: 0px;
+  overflow: auto;
+  height:auto;
+  width:100%;
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  font-size: 16px;
+  color: #6c757d !important;
+  opacity: 1;
+  /* background-color: #e1d2f7; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.textMuted {
+  color: #6c757d !important;
+  /* background-color: #e1d2f7; */
+}
+
+.footerSmall {
+  text-align: center;
+  font-size: 90%;
+  font-weight: 400;
+  color: #6c757d !important;
+  /* background-color: #e1d2f7; */
+}
+.contentmain {
+  overflow: auto;
+  height: auto;
+  width:100%;
+}

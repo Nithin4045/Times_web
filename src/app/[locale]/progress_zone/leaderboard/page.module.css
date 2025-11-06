@@ -1,0 +1,467 @@
+/* Import Rubik Font */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+/* Container */
+.container {
+  font-family: 'Rubik', sans-serif;
+  background-color: #e6ebee;
+  min-height: calc(100vh - 80px);
+}
+
+.container * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  margin-bottom: 24px;
+}
+
+.headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #414141;
+}
+
+.highlight {
+  color: #5a51e2;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6B7280;
+  font-weight: 500;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  text-decoration: none;
+}
+
+.backButton:hover {
+  transform: translateX(-4px);
+}
+
+.backIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.headerDivider {
+  border: none;
+  border-top: 1px solid #D1D5DB;
+}
+
+/* Welcome Section */
+.welcomeSection {
+  margin-bottom: 24px;
+}
+
+.welcomeText {
+  color: #414141;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+/* Info Card */
+.infoCard {
+  background: linear-gradient(to right, #5a51e2, #5a51e2);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  color: white;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.infoIcon {
+  background-color: rgba(255,255,255,0.2);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.emoji {
+  font-size: 24px;
+}
+
+.infoLabel {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.infoValue {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+/* Section */
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #414141;
+}
+
+.activeDays {
+  text-align: right;
+}
+
+.activeDaysLabel {
+  color: #6B7280;
+  font-size: 15px;
+}
+
+.activeDaysValue {
+  color: #5a51e2;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.activeDaysMax {
+  color: #414141;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.sectionDivider {
+  border: none;
+  border-top: 1px solid #D1D5DB;
+  margin-bottom: 24px;
+}
+
+/* Performance Overview */
+.performanceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.performanceCard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rankDisplay {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.rankLabel {
+  color: #4B5563;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.rankBadge {
+  background-color: #FEF3C7;
+  color: #92400E;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 48px;
+  white-space: nowrap;
+}
+
+.rankTotal {
+  color: #6B7280;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.milestonesDisplay {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.milestonesValue {
+  color: #5a51e2;
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.milestonesLabel {
+  color: #4B5563;
+  font-size: 19px;
+}
+
+.improvementCard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.improvementContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.improvementIcon {
+  padding: 16px;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconYellow {
+  background-color: #FEF3C7;
+}
+
+.iconPink {
+  background-color: #FEE2E2;
+}
+
+.emoji {
+  font-size: 36px;
+}
+
+.improvementLabel {
+  color: #4B5563;
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.improvementValue {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.improvementNumber {
+  color: #5a51e2;
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.improvementPercent {
+  color: #5a51e2;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.improvementText {
+  color: #6B7280;
+  font-size: 15px;
+  margin-left: 4px;
+}
+
+.improvementTextGoal {
+  color: #6B7280;
+  font-size: 17px;
+}
+
+/* Detailed Performance */
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.detailLink {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.detailLink:hover {
+  transform: translateX(4px);
+}
+
+.detailLinkText {
+  color: #5a51e2;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.detailArrow {
+  width: 24px;
+  height: 24px;
+  color: #9CA3AF;
+}
+
+.detailLinkWrapper {
+  margin-top: 16px;
+}
+
+.detailLinkFull {
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s;
+}
+
+.detailLinkFull:hover {
+  transform: translateX(4px);
+}
+
+/* Next Steps */
+.nextStepsSection {
+  margin-bottom: 32px;
+}
+
+.nextStepsContent {
+  display: flex;
+  gap: 24px;
+}
+
+.nextStepsIcon {
+  flex-shrink: 0;
+}
+
+.nextStepsImage {
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(to bottom right, #BFDBFE, #DBEAFE);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emojiLarge {
+  font-size: 96px;
+}
+
+.nextStepsText {
+  flex: 1;
+}
+
+.nextStepsTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #414141;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.step {
+  display: flex;
+  gap: 12px;
+}
+
+.stepNumber {
+  font-weight: 700;
+  color: #414141;
+  font-size: 17px;
+}
+
+.stepContent {
+  line-height: 1.6;
+}
+
+.stepContent strong {
+  font-weight: 700;
+  color: #414141;
+}
+
+.stepContent span {
+  color: #4B5563;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .performanceGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerTop {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .nextStepsContent {
+    flex-direction: column;
+  }
+  
+  .nextStepsImage {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .emojiLarge {
+    font-size: 64px;
+  }
+}

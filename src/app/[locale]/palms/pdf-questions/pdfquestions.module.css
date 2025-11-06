@@ -1,0 +1,90 @@
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.selectedFile {
+  margin-top: 8px;
+  color: #1677ff;
+  font-size: 14px;
+}
+
+.sliderLabel {
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 14px;
+  color: #444;
+}
+
+.sliderValue {
+  text-align: right;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.button {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.apiMessage {
+  font-weight: 500;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.successMessage {
+  color: green;
+}
+
+.errorMessage {
+  color: red;
+}
+
+.questionListContainer {
+  margin-top: 32px;
+}
+
+.questionListContainer h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.questionList {
+  padding-left: 20px;
+  font-size: 14px;
+  color: #444;
+}
+
+.questionList li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.progress {
+  margin-bottom: 16px;
+}
+
+.rangeSlider {
+  margin-bottom: 8px;
+}
